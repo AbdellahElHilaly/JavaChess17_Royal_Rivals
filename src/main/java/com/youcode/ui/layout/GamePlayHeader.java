@@ -1,12 +1,10 @@
 package com.youcode.ui.layout;
 
-import com.youcode.shared.print.Printer;
 import com.youcode.ui.component.text.TextGameInformation;
 import com.youcode.ui.component.text.TextPlayerName;
 import com.youcode.ui.config.AppColors;
 import com.youcode.ui.config.AppSizes;
 import com.youcode.ui.guide.PanelComponent;
-
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,19 +23,16 @@ public class GamePlayHeader extends PanelComponent {
 
     @Override
     public void style() {
-        this.panel.setBackground(AppColors.header.get("background"));
+        this.panel.setBackground(AppColors.header.get("foreground"));
     }
 
     @Override
     public void layout() {
-        this.panel.setLayout(new GridLayout(1, 1));
+        this.panel.setLayout(new GridLayout(1, 3, 10, 0));
     }
-
-
 
     @Override
     public void compose() {
-
         TextPlayerName player1 = new TextPlayerName("Player 1");
         TextPlayerName player2 = new TextPlayerName("Player 2");
         TextGameInformation gameInfo = new TextGameInformation();
@@ -45,6 +40,5 @@ public class GamePlayHeader extends PanelComponent {
         this.panel.add(player1.label);
         this.panel.add(gameInfo.label);
         this.panel.add(player2.label);
-
     }
 }

@@ -12,6 +12,7 @@ public class AppColors {
     public static final Color SECONDARY_LIGHT = new Color(171,152,91);
     public static final Color LIGHT = new Color(199,187,133);
     public static final Color TEXT = new Color(255,255,255);
+    public static final Color TEXT_DARK = new Color(4, 20, 65);
 
 
     public static Map<String, Color> board = Map.of(

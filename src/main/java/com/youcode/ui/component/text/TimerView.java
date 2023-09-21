@@ -6,6 +6,8 @@ import com.youcode.ui.guide.Component;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 public class TimerView extends Component {
 
@@ -24,11 +26,21 @@ public class TimerView extends Component {
 
     @Override
     public void style() {
-        label.setFont(new Font("Arial", Font.BOLD, TextsSizes.Timer.get("fontSize")));
+
+        try {
+            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("resources/fonts/electron/TypoDigitDemoItalic-JRogn.ttf"));
+            customFont = customFont.deriveFont(Font.BOLD, TextsSizes.Timer.get("fontSize"));
+            label.setFont(customFont);
+        } catch (IOException | FontFormatException e) {
+            e.printStackTrace();
+        }
+
+
         label.setForeground(AppColors.TEXT);
         label.setHorizontalAlignment(SwingConstants.CENTER);
-        label.setPreferredSize(new Dimension(200, 50));
-        label.setBackground(AppColors.header.get("background"));
+        label.setBackground(AppColors.board.get("foreground"));
+        label.setForeground(AppColors.TEXT_DARK);
+
         label.setOpaque(true);
     }
 }

@@ -7,6 +7,8 @@ import com.youcode.ui.guide.Component;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 public class TextGameInformation extends Component {
 
@@ -24,15 +26,23 @@ public class TextGameInformation extends Component {
 
     @Override
     public void style() {
-        label.setFont(new Font("Arial", Font.BOLD, 16));
+        // Load a custom font (assuming you have the font file)
+        try {
+            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("resources/fonts/roboto/Roboto-Bold.ttf"));
+            customFont = customFont.deriveFont(Font.BOLD, TextsSizes.Information.get("fontSize"));
+            label.setFont(customFont);
+        } catch (IOException | FontFormatException e) {
+            e.printStackTrace();
+        }
+
         label.setHorizontalAlignment(SwingConstants.CENTER);
         label.setVerticalAlignment(0);
         label.setPreferredSize(new Dimension(200, 50));
-        label.setBackground(AppColors.LIGHT);
-        label.setForeground(AppColors.PRIMARY_DARK);
+        label.setBackground(AppColors.board.get("foreground"));
+        label.setForeground(AppColors.TEXT_DARK);
         label.setOpaque(true);
-
     }
+
 
 
 }

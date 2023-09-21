@@ -24,12 +24,12 @@ public class TextPlayerName extends Component {
 
     @Override
     public void style() {
-        label.setFont(new Font("Arial", Font.BOLD, 16));
+        label.setFont(new Font("Arial", Font.BOLD, TextsSizes.PlayerName.get("fontSize")));
         label.setForeground(Color.WHITE);
         label.setHorizontalAlignment(SwingConstants.CENTER);
         label.setVerticalAlignment(0);
-        label.setPreferredSize(new Dimension(200, 50));
-        label.setBackground(AppColors.header.get("background"));
+        label.setPreferredSize(new Dimension(300, 50));
+        label.setBackground(AppColors.header.get("foreground"));
         label.setOpaque(true);
     }
 
