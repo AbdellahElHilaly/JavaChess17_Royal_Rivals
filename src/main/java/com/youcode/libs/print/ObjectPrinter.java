@@ -190,7 +190,7 @@ public class ObjectPrinter extends Printer {
         printTableBody(headers, body);
     }
 
-    public static <T> void tableList(List<T> models, String title) {
+    public static <T> void tableList(List<T> models , String title) {
         if (models.isEmpty())  return;
 
         headers = ObjectHelper.getModelHeader(models.get(0));

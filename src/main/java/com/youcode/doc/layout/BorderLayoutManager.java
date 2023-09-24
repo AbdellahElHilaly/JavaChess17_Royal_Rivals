@@ -1,11 +1,5 @@
 package com.youcode.doc.layout;
 
-import com.youcode.app.ui.layout.BoardContainer;
-import com.youcode.app.ui.layout.Footer;
-import com.youcode.app.ui.layout.Header;
-import com.youcode.app.ui.shared.Const.AppSizes;
-import com.youcode.app.ui.shared.config.PanelConfig;
-
 import javax.swing.*;
 import java.awt.*;
 

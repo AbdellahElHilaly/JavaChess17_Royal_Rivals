@@ -1,8 +1,8 @@
-package com.youcode.app.ui.shared.config;
+package com.youcode.app.ui.shared.utils.config;
 
-import com.youcode.app.ui.shared.Const.AppColors;
-import com.youcode.app.ui.shared.Const.AppFonts;
-import com.youcode.app.ui.shared.Const.AppSizes;
+import com.youcode.app.ui.shared.utils.Const.AppColors;
+import com.youcode.app.ui.shared.utils.Const.AppFonts;
+import com.youcode.app.ui.shared.utils.Const.AppSizes;
 
 import java.awt.*;
 

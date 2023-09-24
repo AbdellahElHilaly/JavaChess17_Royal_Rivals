@@ -1,9 +1,7 @@
 package com.youcode.app.ui.layout;
 
 import com.youcode.app.ui.guide.AppPanel;
-import com.youcode.app.ui.shared.Const.AppColors;
-import com.youcode.app.ui.shared.Const.AppSizes;
-import com.youcode.app.ui.shared.config.PanelConfig;
+import com.youcode.app.ui.shared.utils.config.PanelConfig;
 
 import java.awt.*;
 

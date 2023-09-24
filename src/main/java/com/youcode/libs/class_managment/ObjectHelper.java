@@ -50,12 +50,12 @@ public class ObjectHelper {
     }
 
     public static String[] handelHeaderToPrint(String[] modelHeader) {
-        modelHeader[0] = "index";
+        if (AppConfig.RUN_MOOD.equals(RunMoods.Production.name())) modelHeader[0] = "index";
         return modelHeader;
     }
 
     public static String[] handelBodyToPrint(String[] modelBody, int i) {
-        modelBody[0] = String.valueOf(i);
+        if (AppConfig.RUN_MOOD.equals(RunMoods.Production.name())) modelBody[0] = String.valueOf(i);
         return modelBody;
     }
 

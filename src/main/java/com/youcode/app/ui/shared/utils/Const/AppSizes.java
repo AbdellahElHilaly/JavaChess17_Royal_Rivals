@@ -1,4 +1,4 @@
-package com.youcode.app.ui.shared.Const;
+package com.youcode.app.ui.shared.utils.Const;
 
 
 public class AppSizes {

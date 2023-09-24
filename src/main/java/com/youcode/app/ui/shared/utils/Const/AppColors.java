@@ -1,4 +1,4 @@
-package com.youcode.app.ui.shared.Const;
+package com.youcode.app.ui.shared.utils.Const;
 
 import java.awt.*;
 
@@ -21,6 +21,5 @@ public class AppColors {
     public static final Color DARK = TEXT_DARK;
 
 
-
-
+    public static final Color TRANSPARENT = new Color(0,0,0,0);
 }

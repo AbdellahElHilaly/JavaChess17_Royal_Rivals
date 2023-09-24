@@ -1,6 +1,7 @@
 package com.youcode.app.ui.guide;
 
 import javax.swing.*;
+import java.awt.*;
 
 public abstract class AppPanel extends JPanel {
 
@@ -17,7 +18,6 @@ public abstract class AppPanel extends JPanel {
     public abstract void build();
     public abstract void addComponents();
 
-    //ovirride this method createComponent() to create components
 
 
 

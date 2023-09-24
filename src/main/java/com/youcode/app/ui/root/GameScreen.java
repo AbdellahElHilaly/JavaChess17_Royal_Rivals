@@ -4,7 +4,7 @@ import com.youcode.app.ui.guide.AppFrame;
 import com.youcode.app.ui.layout.BoardContainer;
 import com.youcode.app.ui.layout.Footer;
 import com.youcode.app.ui.layout.Header;
-import com.youcode.app.ui.shared.Const.AppSizes;
+import com.youcode.app.ui.shared.utils.Const.AppSizes;
 import com.youcode.libs.util.config.AppConfig;
 
 import javax.swing.*;
@@ -18,7 +18,6 @@ public class GameScreen extends AppFrame {
 
 
     public GameScreen() {
-        init();
     }
 
 
@@ -34,7 +33,6 @@ public class GameScreen extends AppFrame {
 
     @Override
     public void build() {
-
         setTitle(AppConfig.APP_NAME);
         setSize(AppSizes.MAX_WIDTH, AppSizes.FRAM_HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,8 +46,10 @@ public class GameScreen extends AppFrame {
         add(footer, BorderLayout.SOUTH);
     }
 
-
-    public static void main(String[] args) {
-        GameScreen gameScreen = new GameScreen();
+    public BoardContainer getBoardContainer() {
+        return boardContainer;
     }
+
+
+
 }
