@@ -1,4 +1,4 @@
-package com.youcode.doc.fonctionail_nterface;
+package com.youcode.docs.fonctionail_nterface;
 
 @java.lang.FunctionalInterface
 public  interface FunctionalInterface {

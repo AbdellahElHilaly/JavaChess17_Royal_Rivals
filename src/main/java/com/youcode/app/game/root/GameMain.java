@@ -13,7 +13,6 @@ public class GameMain {
 
         Starter.drawBoard();
         Starter.arrangePieces();
-
         CellDetector.startDetection(Starter.getCellsList());
 
 

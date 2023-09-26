@@ -1,5 +1,7 @@
 package com.youcode.libs.print;
 
+import java.nio.file.Path;
+
 public class Printer extends Colors {
     protected String message;
     protected final static String space = " ";
@@ -87,7 +89,6 @@ public class Printer extends Colors {
     }
 
 
-
     public static void printSpace(int i) {
         for (int j = 0; j < i; j++) {
             print(space);
@@ -95,8 +96,21 @@ public class Printer extends Colors {
     }
 
 
-
+    public static <C , T> void debug(Class<C> Clazz, T message) {
+        printPath(Clazz);
+        printDebug(message);
+    }
     public static <T> void debug(T message) {
+        printDebug(message);
+    }
+
+    private static <C> void printPath(Class<C> clazz) {
+        Colors.tempColor = "cyan";
+        print(clazz.getName());
+        print(" : ");
+    }
+
+    private static <T> void printDebug(T message) {
         Colors.tempColor = "purple";
         print(message);
         endl(1);
@@ -107,5 +121,7 @@ public class Printer extends Colors {
         print(space + filePath);
         endl(1);
     }
+
+
 }
 

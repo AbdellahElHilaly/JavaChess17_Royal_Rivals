@@ -1,16 +1,18 @@
 package com.youcode.app.ui.layout;
 
 import com.youcode.app.ui.component.other.Cell;
-import com.youcode.app.ui.guide.AppPanel;
+import com.youcode.app.ui.guide.impl.AppPanelImpl;
+import com.youcode.app.ui.shared.helper.LogicHelper;
 import com.youcode.app.ui.shared.utils.config.PanelConfig;
-import com.youcode.app.ui.shared.utils.enums.PiecesNames;
+import com.youcode.app.ui.shared.utils.enums.CellColor;
+import com.youcode.app.ui.shared.utils.enums.PiecesTypes;
 
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChessBoard extends AppPanel {
+public class ChessBoard extends AppPanelImpl {
 
     private final List<Cell> cellsList = new ArrayList<>();
 
@@ -37,54 +39,43 @@ public class ChessBoard extends AppPanel {
 
     @Override
     public void addComponents() {
-        for (Cell cell : cellsList) {
-            add(cell);
-        }
+        cellsList.forEach(this::add);
     }
 
     private void initCellsList() {
         for (int row = 0; row < 8; row++) {
             for (int col = 0; col < 8; col++) {
                 char colChar = (char) ('A' + col);
-                Cell cell = new Cell((row + col) % 2 == 0, 8 - row, colChar);
+                Cell cell = new Cell(LogicHelper.getcellcolor(row, col), 8 - row, colChar);
                 cellsList.add(cell);
             }
         }
     }
 
     public void initPieces() {
+        setMultiplePieces(0, CellColor.DARK, PiecesTypes.ROOK, PiecesTypes.KNIGHT, PiecesTypes.BISHOP, PiecesTypes.QUEEN,
+                PiecesTypes.KING, PiecesTypes.BISHOP, PiecesTypes.KNIGHT, PiecesTypes.ROOK);
 
-        cellsList.get(0).setPieceAndUpdate(PiecesNames.ROOK, false);
-        cellsList.get(1).setPieceAndUpdate(PiecesNames.KNIGHT, false);
-        cellsList.get(2).setPieceAndUpdate(PiecesNames.BISHOP, false);
-        cellsList.get(3).setPieceAndUpdate(PiecesNames.QUEEN, false);
-        cellsList.get(4).setPieceAndUpdate(PiecesNames.KING, false);
-        cellsList.get(5).setPieceAndUpdate(PiecesNames.BISHOP, false);
-        cellsList.get(6).setPieceAndUpdate(PiecesNames.KNIGHT, false);
-        cellsList.get(7).setPieceAndUpdate(PiecesNames.ROOK, false);
+        setMultiplePieces(56, CellColor.LIGHT, PiecesTypes.ROOK, PiecesTypes.KNIGHT, PiecesTypes.BISHOP, PiecesTypes.QUEEN,
+                PiecesTypes.KING, PiecesTypes.BISHOP, PiecesTypes.KNIGHT, PiecesTypes.ROOK);
 
-        for (int i = 8; i < 16; i++) {
-            cellsList.get(i).setPieceAndUpdate(PiecesNames.PAWN, false);
+        setPawns(8, 16, CellColor.DARK);
+        setPawns(48, 56, CellColor.LIGHT);
+    }
+
+    private void setMultiplePieces(int row, CellColor cellColor, PiecesTypes... pieces) {
+        for (int i = 0; i < pieces.length; i++) {
+            cellsList.get(row + i).setPieceAndUpdate(pieces[i], cellColor);
         }
+    }
 
-        cellsList.get(56).setPieceAndUpdate(PiecesNames.ROOK, true);
-        cellsList.get(57).setPieceAndUpdate(PiecesNames.KNIGHT, true);
-        cellsList.get(58).setPieceAndUpdate(PiecesNames.BISHOP, true);
-        cellsList.get(59).setPieceAndUpdate(PiecesNames.QUEEN, true);
-        cellsList.get(60).setPieceAndUpdate(PiecesNames.KING, true);
-        cellsList.get(61).setPieceAndUpdate(PiecesNames.BISHOP, true);
-        cellsList.get(62).setPieceAndUpdate(PiecesNames.KNIGHT, true);
-        cellsList.get(63).setPieceAndUpdate(PiecesNames.ROOK, true);
-
-        for (int i = 48; i < 56; i++) {
-            cellsList.get(i).setPieceAndUpdate(PiecesNames.PAWN, true);
+    private void setPawns(int start, int end, CellColor status) {
+        for (int i = start; i < end; i++) {
+            cellsList.get(i).setPieceAndUpdate(PiecesTypes.PAWN, status);
         }
-
-
     }
 
     public List<Cell> getCellsList() {
         return cellsList;
     }
-
 }

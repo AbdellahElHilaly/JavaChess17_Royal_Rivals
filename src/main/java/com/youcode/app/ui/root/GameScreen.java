@@ -1,6 +1,6 @@
 package com.youcode.app.ui.root;
 
-import com.youcode.app.ui.guide.AppFrame;
+import com.youcode.app.ui.guide.impl.AppFrameImpl;
 import com.youcode.app.ui.layout.BoardContainer;
 import com.youcode.app.ui.layout.Footer;
 import com.youcode.app.ui.layout.Header;
@@ -10,7 +10,7 @@ import com.youcode.libs.util.config.AppConfig;
 import javax.swing.*;
 import java.awt.*;
 
-public class GameScreen extends AppFrame {
+public class GameScreen extends AppFrameImpl {
 
     private final Header header = new Header();
     private final BoardContainer boardContainer = new BoardContainer();
@@ -37,6 +37,7 @@ public class GameScreen extends AppFrame {
         setSize(AppSizes.MAX_WIDTH, AppSizes.FRAM_HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        setLocation(Toolkit.getDefaultToolkit().getScreenSize().width - AppSizes.MAX_WIDTH + 10, 0);
     }
 
     @Override
@@ -50,6 +51,6 @@ public class GameScreen extends AppFrame {
         return boardContainer;
     }
 
-
-
 }
+
+

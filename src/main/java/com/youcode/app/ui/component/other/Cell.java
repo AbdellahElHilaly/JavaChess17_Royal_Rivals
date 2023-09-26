@@ -1,30 +1,31 @@
 package com.youcode.app.ui.component.other;
 
 import com.youcode.app.game.model.entity.CellInfo;
-import com.youcode.app.ui.guide.AppPanel;
+import com.youcode.app.ui.guide.impl.AppPanelImpl;
 import com.youcode.app.ui.shared.utils.config.PanelConfig;
-import com.youcode.app.ui.shared.utils.enums.PiecesNames;
-import com.youcode.libs.print.ObjectPrinter;
+import com.youcode.app.ui.shared.utils.enums.CellColor;
+import com.youcode.app.ui.shared.utils.enums.PiecesTypes;
 import com.youcode.libs.print.Printer;
 
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
-public class Cell extends AppPanel {
+public class Cell extends AppPanelImpl {
 
     private final int row;
     private final char col;
-
-    private final Boolean isBackgroundLight;
+    private final CellColor cellColor;
     private Piece piece;
+    private boolean isCellEmpty;
 
-    public Cell(Boolean isBackgroundLight, int row, char col) {
-        this.isBackgroundLight = isBackgroundLight;
+    public Cell(CellColor status, int row, char col) {
+        this.cellColor = status;
         this.row = row;
         this.col = col;
+        this.isCellEmpty = true;
         init();
     }
+
+
 
     @Override
     public void setLayout() {
@@ -33,7 +34,7 @@ public class Cell extends AppPanel {
 
     @Override
     public void setStyle() {
-        setBackground(PanelConfig.Cell.getBackground(isBackgroundLight));
+        setBackground(PanelConfig.Cell.getBackground(cellColor));
     }
 
     @Override
@@ -43,14 +44,23 @@ public class Cell extends AppPanel {
 
     @Override
     public void addComponents() {
-
+        addVirtualPiece();
     }
 
-    public void setPieceAndUpdate(PiecesNames piecesNames , Boolean isPieceLight) {
-        piece = new Piece(isPieceLight, isBackgroundLight, piecesNames);
+    private void addVirtualPiece() {
+        piece = new Piece(cellColor);
         add(piece, BorderLayout.CENTER);
+    }
+
+
+    public void setPieceAndUpdate(PiecesTypes piecesType, CellColor PieceStatus) {
+        remove(piece);
+        piece = new Piece(PieceStatus, cellColor, piecesType, false);
+        add(piece, BorderLayout.CENTER);
+        isCellEmpty = false;
         updateCell();
     }
+
 
     private void updateCell() {
         revalidate();
@@ -62,14 +72,23 @@ public class Cell extends AppPanel {
     }
 
     public CellInfo getCellInfo() {
-        return new CellInfo(row, col, piece == null);
+        return new CellInfo(row, col, isCellEmpty, cellColor, piece.getPieceStatus(), piece.getPiecesType());
     }
 
-
-
-
     public boolean isEmpty() {
-        return piece == null;
+        return isCellEmpty;
+    }
+
+    public void setEmptyClickedStyle() {
+        setBorder(PanelConfig.Cell.CLICKED_EMPTY_BORDER);
+    }
+    public  void setPieceClickedStyle() {
+        setBorder(PanelConfig.Cell.CLICKED_PIECE_BORDER);
+    }
+
+    public void setDefaultStyle() {
+        setBackground(PanelConfig.Cell.getBackground(cellColor));
+        setBorder(null);
     }
 
 

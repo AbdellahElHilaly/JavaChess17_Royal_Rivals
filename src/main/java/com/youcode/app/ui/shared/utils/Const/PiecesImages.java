@@ -1,7 +1,7 @@
 package com.youcode.app.ui.shared.utils.Const;
 
 import com.youcode.app.ui.shared.helper.UiHelper;
-import com.youcode.app.ui.shared.utils.enums.PiecesNames;
+import com.youcode.app.ui.shared.utils.enums.PiecesTypes;
 
 import java.awt.image.BufferedImage;
 
@@ -23,9 +23,9 @@ public class PiecesImages {
     private static final BufferedImage DARK_KING = UiHelper.getImage(PATH + "black-king.png");
 
 
-    public static BufferedImage get(boolean isLight, PiecesNames piecesNames) {
+    public static BufferedImage get(boolean isLight, PiecesTypes piecesTypes) {
         if (isLight) {
-            switch (piecesNames) {
+            switch (piecesTypes) {
                 case PAWN:
                     return LIGHT_PAWN;
                 case KNIGHT:
@@ -40,7 +40,7 @@ public class PiecesImages {
                     return LIGHT_KING;
             }
         } else {
-            switch (piecesNames) {
+            switch (piecesTypes) {
                 case PAWN:
                     return DARK_PAWN;
                 case KNIGHT:

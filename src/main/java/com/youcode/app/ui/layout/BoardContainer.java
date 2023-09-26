@@ -1,11 +1,11 @@
 package com.youcode.app.ui.layout;
 
-import com.youcode.app.ui.guide.AppPanel;
+import com.youcode.app.ui.guide.impl.AppPanelImpl;
 import com.youcode.app.ui.shared.utils.config.PanelConfig;
 
 import java.awt.*;
 
-public class BoardContainer extends AppPanel {
+public class BoardContainer extends AppPanelImpl {
 
     private final ChessBoard chessBoard = new ChessBoard();
 

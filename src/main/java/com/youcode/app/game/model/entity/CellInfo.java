@@ -1,15 +1,33 @@
 package com.youcode.app.game.model.entity;
 
+import com.youcode.app.ui.shared.helper.LogicHelper;
+import com.youcode.app.ui.shared.utils.enums.CellColor;
+import com.youcode.app.ui.shared.utils.enums.PiecesTypes;
+
 public class CellInfo {
     private int row;
     private char col;
     private Boolean isEmpty;
+    private CellColor cellColor;
+    private final CellColor pieceColor;
+    private final PiecesTypes piecesType;
+    private final Integer pieceValue;
 
-    public CellInfo(int row, char col, boolean b) {
+    public CellInfo(int row, char col, boolean isEmpty, CellColor cellColor, CellColor pieceColor, PiecesTypes piecesType) {
         this.row = row;
         this.col = col;
-        this.isEmpty = b;
+        this.isEmpty = isEmpty;
+        this.cellColor = cellColor;
+        this.pieceColor = pieceColor;
+        this.piecesType = piecesType;
+        this.pieceValue = getPiecesValue();
+    }
 
+
+
+    private Integer getPiecesValue() {
+        if (piecesType == null) return 0;
+        return LogicHelper.generatePieceValue(piecesType);
     }
 
     public int getRow() {
@@ -35,4 +53,13 @@ public class CellInfo {
     public void setEmpty(Boolean empty) {
         isEmpty = empty;
     }
+
+    public CellColor getCellStatus() {
+        return cellColor;
+    }
+
+    public void setCellStatus(CellColor cellColor) {
+        this.cellColor = cellColor;
+    }
+
 }

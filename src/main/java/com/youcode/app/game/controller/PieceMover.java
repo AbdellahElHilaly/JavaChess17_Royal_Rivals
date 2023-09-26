@@ -6,7 +6,7 @@ import java.util.List;
 
 public class PieceMover {
 
-    private static List<Cell> cells = getCells();
+    private static final List<Cell> cells = getCells();
 
     private static List<Cell> getCells() {
         return Starter.getGameScreen().getBoardContainer().getChessBoard().getCellsList();
@@ -15,6 +15,8 @@ public class PieceMover {
     private static boolean isCellEmpty(Cell cell) {
         return cell.isEmpty();
     }
+
+
 
 }
 

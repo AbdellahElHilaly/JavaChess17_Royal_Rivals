@@ -2,7 +2,10 @@ package com.youcode.app.ui.shared.utils.config;
 
 import com.youcode.app.ui.shared.utils.Const.AppColors;
 import com.youcode.app.ui.shared.utils.Const.AppSizes;
+import com.youcode.app.ui.shared.utils.enums.CellColor;
 
+import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 public class PanelConfig {
@@ -33,12 +36,19 @@ public class PanelConfig {
     public static class Cell {
         public static final Integer WIDTH = 100;
         public static final Integer HEIGHT = 100;
-        public static final Color BACKGROUND_LIGHT = AppColors.LIGHT;
+        public static final Color BACKGROUND_LIGHT = AppColors.TERTIARY;
         public static final Color BACKGROUND_DARK = AppColors.PRIMARY_DARK;
+        public static final Border CLICKED_PIECE_BORDER = BorderFactory.createLineBorder(AppColors.TEXT_DARK, 4);
+        public static final Border CLICKED_EMPTY_BORDER = BorderFactory.createLineBorder(AppColors.QUATERNARY, 4);
 
-        public static Color getBackground(Boolean isLight) {
-            return isLight ? BACKGROUND_LIGHT : BACKGROUND_DARK;
+        public static Color getBackground(CellColor status) {
+            return status == CellColor.LIGHT ? BACKGROUND_LIGHT : BACKGROUND_DARK;
         }
+
+
+
+
+
     }
 
     public static class BoardContainer {

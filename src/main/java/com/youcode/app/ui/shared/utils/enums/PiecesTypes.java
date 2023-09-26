@@ -1,6 +1,6 @@
 package com.youcode.app.ui.shared.utils.enums;
 
-public enum PiecesNames {
+public enum PiecesTypes {
     KING,
     QUEEN,
     ROOK,

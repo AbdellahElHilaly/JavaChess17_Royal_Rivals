@@ -9,10 +9,11 @@ public class AppColors {
     public static final Color PRIMARY_LIGHT = new Color(206,80,103);
 
 
-    public static final Color SECONDARY_DARK = new Color(174,133,93);;
+    public static final Color SECONDARY_DARK = new Color(174,133,93);
     public static final Color SECONDARY_LIGHT = new Color(171,152,91);
 
-    public static final Color LIGHT = new Color(199,187,133);
+    public static final Color TERTIARY = new Color(199,187,133);
+    public static final Color QUATERNARY = new Color(0, 163, 255);
 
     public static final Color TEXT_LIGHT = new Color(197, 186, 186);
     public static final Color TEXT_DARK = new Color(4, 20, 65);

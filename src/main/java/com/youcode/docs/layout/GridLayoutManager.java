@@ -1,4 +1,4 @@
-package com.youcode.doc.layout;
+package com.youcode.docs.layout;
 
 import javax.swing.*;
 import java.awt.*;

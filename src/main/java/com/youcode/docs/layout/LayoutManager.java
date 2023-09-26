@@ -1,4 +1,4 @@
-package com.youcode.doc.layout;
+package com.youcode.docs.layout;
 
 /**
  * LayoutManager is like an interface;
