@@ -2,7 +2,7 @@ package com.youcode.app.ui.layout;
 
 import com.youcode.app.ui.component.text.TimerView;
 import com.youcode.app.ui.guide.impl.AppPanelImpl;
-import com.youcode.app.ui.shared.utils.config.PanelConfig;
+import com.youcode.app.shared.config.PanelConfig;
 
 import java.awt.*;
 

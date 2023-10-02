@@ -1,12 +1,8 @@
 package com.youcode.app.game.controller;
 
 import com.youcode.app.game.arbiter.BasicArbiter;
-import com.youcode.app.ui.component.Buttons.PieceButton;
 import com.youcode.app.ui.component.other.Cell;
-import com.youcode.libs.print.ObjectPrinter;
 import com.youcode.libs.print.Printer;
-
-import java.util.List;
 
 public class PieceMover {
 
@@ -32,7 +28,7 @@ public class PieceMover {
         }
         if (isCellEmpty(to)) {
 
-            to.setMovingPieceAndUpdate(from.getPiece().getPiecesType(), from.getPiece().getPieceStatus());
+            to.setMovingPieceAndUpdate(from.getPiece().getPiecesType(), from.getPiece().getPieceColor());
             to.setDefaultStyle();
 
             from.removePieceAndUpdate();

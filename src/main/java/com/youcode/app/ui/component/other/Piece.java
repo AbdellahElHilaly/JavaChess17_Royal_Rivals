@@ -3,27 +3,25 @@ package com.youcode.app.ui.component.other;
 import com.youcode.app.ui.component.Buttons.PieceButton;
 import com.youcode.app.ui.component.icons.PieceIcon;
 import com.youcode.app.ui.guide.impl.AppPanelImpl;
-import com.youcode.app.ui.shared.helper.IconsHandler;
-import com.youcode.app.ui.shared.utils.Const.PiecesImages;
-import com.youcode.app.ui.shared.utils.config.PanelConfig;
-import com.youcode.app.ui.shared.utils.enums.CellColor;
-import com.youcode.app.ui.shared.utils.enums.PiecesTypes;
+import com.youcode.app.shared.config.PanelConfig;
+import com.youcode.app.shared.enums.CellColor;
+import com.youcode.app.shared.enums.PiecesTypes;
+import com.youcode.app.ui.helper.IconsHandler;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 
 public class Piece extends AppPanelImpl {
 
-    private  CellColor pieceStatus;
+    private  CellColor pieceColor;
     private final   CellColor cellColor;
     private PiecesTypes piecesType;
     private final PieceButton pieceButton;
     private  PieceIcon pieceIcon;
     private final boolean isCellEmpty;
 
-    public Piece(CellColor pieceStatus, CellColor cellColor, PiecesTypes piecesType, boolean isCellEmpty) {
-        this.pieceStatus = pieceStatus;
+    public Piece(CellColor pieceColor, CellColor cellColor, PiecesTypes piecesType, boolean isCellEmpty) {
+        this.pieceColor = pieceColor;
         this.cellColor = cellColor;
         this.piecesType = piecesType;
         this.isCellEmpty = isCellEmpty;
@@ -33,7 +31,7 @@ public class Piece extends AppPanelImpl {
 
     public Piece(CellColor cellColor) {
         this.cellColor = cellColor;
-        this.pieceStatus = null;
+        this.pieceColor = null;
         this.piecesType = null;
         this.isCellEmpty = true;
         pieceButton = new PieceButton(cellColor);
@@ -68,7 +66,7 @@ public class Piece extends AppPanelImpl {
 
     private void addButtonIcon() {
         if(pieceIcon == null) pieceIcon = new PieceIcon();
-        pieceIcon.getIcon(IconsHandler.get(pieceStatus == CellColor.LIGHT, piecesType));
+        pieceIcon.getIcon(IconsHandler.get(pieceColor == CellColor.LIGHT, piecesType));
         pieceButton.setIcon(pieceIcon);
         add(pieceButton, BorderLayout.CENTER);
     }
@@ -79,8 +77,8 @@ public class Piece extends AppPanelImpl {
     }
 
 
-    public CellColor getPieceStatus() {
-        return pieceStatus;
+    public CellColor getPieceColor() {
+        return pieceColor;
     }
 
     public PiecesTypes getPiecesType() {
@@ -99,11 +97,11 @@ public class Piece extends AppPanelImpl {
         pieceButton.destroyIcon();
         pieceButton.updateComponentUI();
         piecesType = null;
-        pieceStatus = null;
+        pieceColor = null;
     }
 
-    public void setPieceStatus(CellColor pieceStatus) {
-        this.pieceStatus = pieceStatus;
+    public void setPieceColor(CellColor pieceColor) {
+        this.pieceColor = pieceColor;
     }
 
     public void setPiecesType(PiecesTypes piecesType) {

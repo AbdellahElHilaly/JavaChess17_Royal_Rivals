@@ -1,9 +1,8 @@
-package com.youcode.app.ui.shared.utils.Const;
+package com.youcode.app.shared.Const;
 
-import com.youcode.app.ui.shared.helper.UiHelper;
-import com.youcode.app.ui.shared.utils.enums.PiecesTypes;
 
-import javax.swing.*;
+import com.youcode.app.ui.helper.UiHelper;
+
 import java.awt.image.BufferedImage;
 
 public class PiecesImages {

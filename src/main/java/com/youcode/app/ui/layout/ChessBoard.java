@@ -2,10 +2,10 @@ package com.youcode.app.ui.layout;
 
 import com.youcode.app.ui.component.other.Cell;
 import com.youcode.app.ui.guide.impl.AppPanelImpl;
-import com.youcode.app.ui.shared.helper.LogicHelper;
-import com.youcode.app.ui.shared.utils.config.PanelConfig;
-import com.youcode.app.ui.shared.utils.enums.CellColor;
-import com.youcode.app.ui.shared.utils.enums.PiecesTypes;
+import com.youcode.app.game.helper.LogicHelper;
+import com.youcode.app.shared.config.PanelConfig;
+import com.youcode.app.shared.enums.CellColor;
+import com.youcode.app.shared.enums.PiecesTypes;
 
 import javax.swing.border.LineBorder;
 import java.awt.*;

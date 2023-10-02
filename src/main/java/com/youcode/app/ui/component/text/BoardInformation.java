@@ -1,30 +1,33 @@
 package com.youcode.app.ui.component.text;
 
 import com.youcode.app.ui.guide.AppComponent;
-import com.youcode.app.ui.shared.utils.config.TextConfig;
+import com.youcode.app.shared.config.TextConfig;
+import com.youcode.libs.util.config.AppConfig;
 
 import javax.swing.*;
 
-public class TextPlayer1 extends JLabel implements AppComponent {
+public class BoardInformation extends JLabel implements AppComponent {
 
-    public TextPlayer1() {
-        super("Player 1");
+    public BoardInformation() {
+        super(AppConfig.APP_NAME);
         init();
     }
 
     @Override
     public void setStyle() {
-        setFont(TextConfig.PlayerName.FONT);
-        setForeground(TextConfig.PlayerName.COLOR);
+        setFont(TextConfig.GameInfo.FONT);
+        setForeground(TextConfig.GameInfo.COLOR);
+        setBackground(TextConfig.GameInfo.BACKGROUND);
+
+
+
     }
 
     @Override
     public void build() {
         setHorizontalAlignment(SwingConstants.CENTER);
         setVerticalAlignment(SwingConstants.CENTER);
-        setPreferredSize(TextConfig.PlayerName.DIMENSION);
         setOpaque(false);
-
     }
 
     @Override

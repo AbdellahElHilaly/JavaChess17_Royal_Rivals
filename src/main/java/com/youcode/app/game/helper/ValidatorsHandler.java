@@ -1,40 +1,44 @@
 package com.youcode.app.game.helper;
 
+import com.youcode.app.game.validator.FreeReturnValidator;
 import com.youcode.app.game.validator.FreeTransactionValidator;
 import com.youcode.app.game.model.entity.Location;
-import com.youcode.app.ui.shared.utils.enums.CellColor;
+import com.youcode.app.game.validator.IsFriendOnTheWayValidator;
+import com.youcode.app.shared.enums.CellColor;
 
 public class ValidatorsHandler {
 
-    private static Boolean isValidate = false;
 
     public static boolean pawn(Location oldLocation, Location nextLocation, CellColor cellColor) {
-        isValidate = FreeTransactionValidator.pawn(oldLocation, nextLocation, cellColor);
-        return isValidate;
+        return FreeTransactionValidator.pawn(oldLocation, nextLocation, cellColor) &&
+                FreeReturnValidator.pawn(oldLocation, nextLocation, cellColor);
     }
 
     public static boolean king(Location oldLocation, Location nextLocation, CellColor cellColor) {
-        isValidate = FreeTransactionValidator.king(oldLocation, nextLocation, cellColor);
-        return isValidate;
+        return FreeTransactionValidator.king(oldLocation, nextLocation, cellColor) &&
+                FreeReturnValidator.king();
+
     }
 
     public static boolean queen(Location oldLocation, Location nextLocation, CellColor cellColor) {
-        isValidate = FreeTransactionValidator.queen(oldLocation, nextLocation, cellColor);
-        return isValidate;
+        return FreeTransactionValidator.queen(oldLocation, nextLocation, cellColor) &&
+                FreeReturnValidator.queen();
+
     }
 
     public static boolean rook(Location oldLocation, Location nextLocation, CellColor cellColor) {
-        isValidate = FreeTransactionValidator.rook(oldLocation, nextLocation, cellColor);
-        return isValidate;
+        return FreeTransactionValidator.rook(oldLocation, nextLocation, cellColor) &&
+                FreeReturnValidator.rook() &&
+                IsFriendOnTheWayValidator.rook(oldLocation, nextLocation, cellColor);
     }
 
     public static boolean bishop(Location oldLocation, Location nextLocation, CellColor cellColor) {
-        isValidate = FreeTransactionValidator.bishop(oldLocation, nextLocation, cellColor);
-        return isValidate;
+        return FreeTransactionValidator.bishop(oldLocation, nextLocation, cellColor) &&
+                FreeReturnValidator.bishop();
     }
 
     public static boolean knight(Location oldLocation, Location nextLocation, CellColor cellColor) {
-        isValidate = FreeTransactionValidator.knight(oldLocation, nextLocation, cellColor);
-        return isValidate;
+        return FreeTransactionValidator.knight(oldLocation, nextLocation, cellColor) &&
+                FreeReturnValidator.knight();
     }
 }

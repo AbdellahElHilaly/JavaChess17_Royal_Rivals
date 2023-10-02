@@ -1,8 +1,8 @@
-package com.youcode.app.ui.shared.utils.config;
+package com.youcode.app.shared.config;
 
-import com.youcode.app.ui.shared.utils.Const.AppColors;
-import com.youcode.app.ui.shared.utils.Const.AppSizes;
-import com.youcode.app.ui.shared.utils.enums.CellColor;
+import com.youcode.app.shared.Const.AppColors;
+import com.youcode.app.shared.Const.AppSizes;
+import com.youcode.app.shared.enums.CellColor;
 
 import javax.swing.*;
 import javax.swing.border.Border;

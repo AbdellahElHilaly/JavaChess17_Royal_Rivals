@@ -1,4 +1,4 @@
-package com.youcode.app.ui.shared.utils.Const;
+package com.youcode.app.shared.Const;
 
 import java.awt.*;
 

@@ -33,11 +33,24 @@ public class ObjectHelper {
             try {
                 Object value = fields[i].get(model);
                 body[i] = value != null ? value.toString() : "null";
+                //if model have package name get his data like an table body
+                if (body[i].contains("com.")) {
+                    body[i] = clazz.getSimpleName() + "*object";
+                }
                 if (i==0 && AppConfig.RUN_MOOD.equals(RunMoods.Production.name())) body[i] = String.valueOf(index);
             } catch (IllegalAccessException e) {
                 body[i] = "N/A";
             }
         }
+
+
+
+
+
+
+
+
+
         return body;
     }
 

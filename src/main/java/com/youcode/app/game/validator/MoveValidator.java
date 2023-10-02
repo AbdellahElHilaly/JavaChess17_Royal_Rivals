@@ -4,9 +4,8 @@ import com.youcode.app.game.helper.LocationGenerator;
 import com.youcode.app.game.helper.ValidatorsHandler;
 import com.youcode.app.game.model.entity.Location;
 import com.youcode.app.ui.component.other.Cell;
-import com.youcode.app.ui.shared.utils.enums.CellColor;
-import com.youcode.app.ui.shared.utils.enums.PiecesTypes;
-import com.youcode.libs.print.ObjectPrinter;
+import com.youcode.app.shared.enums.CellColor;
+import com.youcode.app.shared.enums.PiecesTypes;
 
 public class MoveValidator {
     private  static PiecesTypes type;
@@ -61,7 +60,7 @@ public class MoveValidator {
         nextLocation.setY(LocationGenerator.getY(nextCell));
 
         type = oldetCell.getPiece().getPiecesType();
-        currentPlayerColor = oldetCell.getCellColor();
+        currentPlayerColor = oldetCell.getPiece().getPieceColor();
     }
 
 }

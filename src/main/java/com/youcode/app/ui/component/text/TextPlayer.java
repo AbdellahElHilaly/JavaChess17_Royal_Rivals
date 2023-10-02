@@ -1,14 +1,18 @@
 package com.youcode.app.ui.component.text;
 
 import com.youcode.app.ui.guide.AppComponent;
-import com.youcode.app.ui.shared.utils.config.TextConfig;
+import com.youcode.app.shared.config.TextConfig;
 
 import javax.swing.*;
 
-public class TextPlayer2 extends JLabel implements AppComponent {
+public class TextPlayer extends JLabel implements AppComponent {
 
-    public TextPlayer2() {
+    private final int marginLeft;
+    private final int marginRight;
+    public TextPlayer(int marginLeft, int marginRight) {
         super("Player 1");
+        this.marginLeft = marginLeft;
+        this.marginRight = marginRight;
         init();
     }
 
@@ -22,7 +26,7 @@ public class TextPlayer2 extends JLabel implements AppComponent {
     public void build() {
         setHorizontalAlignment(SwingConstants.CENTER);
         setVerticalAlignment(SwingConstants.CENTER);
-        setPreferredSize(TextConfig.PlayerName.DIMENSION);
+        setBorder(BorderFactory.createEmptyBorder(0, marginLeft, 0, marginRight));
         setOpaque(false);
 
     }

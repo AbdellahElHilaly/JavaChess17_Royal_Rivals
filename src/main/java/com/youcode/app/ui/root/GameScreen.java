@@ -4,7 +4,7 @@ import com.youcode.app.ui.guide.impl.AppFrameImpl;
 import com.youcode.app.ui.layout.BoardContainer;
 import com.youcode.app.ui.layout.Footer;
 import com.youcode.app.ui.layout.Header;
-import com.youcode.app.ui.shared.utils.Const.AppSizes;
+import com.youcode.app.shared.Const.AppSizes;
 import com.youcode.libs.util.config.AppConfig;
 
 import javax.swing.*;

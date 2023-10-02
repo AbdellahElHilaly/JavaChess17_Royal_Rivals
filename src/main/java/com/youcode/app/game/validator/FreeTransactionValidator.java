@@ -2,10 +2,13 @@ package com.youcode.app.game.validator;
 
 import com.youcode.app.game.arbiter.BasicArbiter;
 import com.youcode.app.game.model.entity.Location;
-import com.youcode.app.ui.shared.helper.LogicHelper;
-import com.youcode.app.ui.shared.utils.enums.CellColor;
-import com.youcode.libs.print.Printer;
+import com.youcode.app.game.helper.LogicHelper;
+import com.youcode.app.shared.enums.CellColor;
 
+/**
+ * This class is responsible for validating the free movement of the pieces, all pieces can move like nothing is in their way.
+ * this class look the board like it's empty and have just the piece that we want to move and move it with his own rules.
+ */
 public class FreeTransactionValidator {
 
     public static boolean pawn(Location oldLocation, Location nextLocation, CellColor cellColor) {

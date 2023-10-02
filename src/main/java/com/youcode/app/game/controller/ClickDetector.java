@@ -38,6 +38,7 @@ public class ClickDetector {
         if (isValidate) {
             PieceMover.move(oldetCell, nextCell);
         }
+        else PieceMover.confirm_move_click = false;
     }
 
 
@@ -47,7 +48,7 @@ public class ClickDetector {
     }
 
     private static void handlePieceClickedCell(Cell clickedCell) {
-        if(BasicArbiter.currentPlayer != clickedCell.getPiece().getPieceStatus()) return;
+        if(BasicArbiter.currentPlayer != clickedCell.getPiece().getPieceColor()) return;
         firstPieceClicked(clickedCell);
         changePieceClicked(clickedCell);
         cancelAndChangePieceClicked(clickedCell);
@@ -82,9 +83,9 @@ public class ClickDetector {
         if(oldetCell == null) {
             Printer.error("can't move from cell is empty!");
         }
-        else if (nextCell == null && oldetCell != null) {
+        else if (nextCell == null) {
             newEmptyCellClicked(clickedCell);
-        } else if (oldetCell != null) {
+        } else {
             if (nextCell == clickedCell) PieceMover.confirm_move_click = true;
             changeEmptyCellClicked(clickedCell);
         }
@@ -107,9 +108,7 @@ public class ClickDetector {
     private static void printInfo(Cell clickedCell) {
 
         ObjectPrinter.json(clickedCell.getCellInfo(), "Cell Info");
-
         if(oldetCell != null) ObjectPrinter.json(LocationGenerator.get(oldetCell), "old Location");
-        ObjectPrinter.json(LocationGenerator.get(clickedCell), "clicked Location");
         if(nextCell != null)  ObjectPrinter.json(LocationGenerator.get(nextCell), "next Location");
     }
 

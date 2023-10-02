@@ -1,7 +1,7 @@
 package com.youcode.app.ui.component.text;
 
 import com.youcode.app.ui.guide.AppComponent;
-import com.youcode.app.ui.shared.utils.config.TextConfig;
+import com.youcode.app.shared.config.TextConfig;
 
 import javax.swing.*;
 import java.util.Date;

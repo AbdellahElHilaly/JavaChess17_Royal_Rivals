@@ -1,8 +1,7 @@
 package com.youcode.app.game.arbiter;
 
 import com.youcode.app.game.model.entity.Location;
-import com.youcode.app.ui.shared.utils.enums.CellColor;
-import com.youcode.libs.print.Printer;
+import com.youcode.app.shared.enums.CellColor;
 
 public class BasicArbiter {
     public static CellColor currentPlayer = CellColor.DARK;

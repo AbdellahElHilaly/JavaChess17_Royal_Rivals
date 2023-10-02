@@ -1,6 +1,6 @@
-package com.youcode.app.ui.shared.helper;
+package com.youcode.app.ui.helper;
 
-import com.youcode.app.ui.shared.utils.config.PanelConfig;
+import com.youcode.app.shared.config.PanelConfig;
 import com.youcode.libs.print.Printer;
 
 import javax.imageio.ImageIO;

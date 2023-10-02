@@ -1,9 +1,8 @@
 package com.youcode.app.ui.component.Buttons;
 
 import com.youcode.app.ui.guide.AppComponent;
-import com.youcode.app.ui.shared.helper.LogicHelper;
-import com.youcode.app.ui.shared.utils.config.PanelConfig;
-import com.youcode.app.ui.shared.utils.enums.CellColor;
+import com.youcode.app.shared.config.PanelConfig;
+import com.youcode.app.shared.enums.CellColor;
 
 import javax.swing.*;
 

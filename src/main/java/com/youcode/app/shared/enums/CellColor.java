@@ -1,4 +1,4 @@
-package com.youcode.app.ui.shared.utils.enums;
+package com.youcode.app.shared.enums;
 
 public enum CellColor {
     DARK,

@@ -2,11 +2,9 @@ package com.youcode.app.ui.component.other;
 
 import com.youcode.app.game.model.entity.CellInfo;
 import com.youcode.app.ui.guide.impl.AppPanelImpl;
-import com.youcode.app.ui.shared.utils.config.PanelConfig;
-import com.youcode.app.ui.shared.utils.enums.CellColor;
-import com.youcode.app.ui.shared.utils.enums.PiecesTypes;
-import com.youcode.libs.print.ObjectPrinter;
-import com.youcode.libs.print.Printer;
+import com.youcode.app.shared.config.PanelConfig;
+import com.youcode.app.shared.enums.CellColor;
+import com.youcode.app.shared.enums.PiecesTypes;
 
 import java.awt.*;
 
@@ -70,7 +68,7 @@ public class Cell extends AppPanelImpl {
     }
 
     public CellInfo getCellInfo() {
-        return new CellInfo(row, col, isCellEmpty, cellColor, piece.getPieceStatus(), piece.getPiecesType());
+        return new CellInfo(row, col, isCellEmpty, cellColor, piece.getPieceColor(), piece.getPiecesType());
     }
 
     public boolean isEmpty() {
@@ -110,7 +108,7 @@ public class Cell extends AppPanelImpl {
 
     public void setMovingPieceAndUpdate(PiecesTypes piecesType, CellColor pieceStatus) {
         piece.addPieceIcon(piecesType, pieceStatus);
-        piece.setPieceStatus(pieceStatus);
+        piece.setPieceColor(pieceStatus);
         piece.setPiecesType(piecesType);
         isCellEmpty = false;
         updatePanel();

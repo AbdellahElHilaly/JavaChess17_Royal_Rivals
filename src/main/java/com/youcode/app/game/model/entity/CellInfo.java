@@ -1,8 +1,8 @@
 package com.youcode.app.game.model.entity;
 
-import com.youcode.app.ui.shared.helper.LogicHelper;
-import com.youcode.app.ui.shared.utils.enums.CellColor;
-import com.youcode.app.ui.shared.utils.enums.PiecesTypes;
+import com.youcode.app.game.helper.LogicHelper;
+import com.youcode.app.shared.enums.CellColor;
+import com.youcode.app.shared.enums.PiecesTypes;
 
 public class CellInfo {
     private int row;

@@ -2,6 +2,7 @@ package com.youcode.app.game.helper;
 
 import com.youcode.app.game.model.entity.Location;
 import com.youcode.app.ui.component.other.Cell;
+import com.youcode.libs.print.ObjectPrinter;
 
 public class LocationGenerator {
     public static final Location location = new Location();
