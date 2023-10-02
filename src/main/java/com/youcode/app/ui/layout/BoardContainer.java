@@ -32,9 +32,6 @@ public class BoardContainer extends AppPanelImpl {
         add(chessBoard);
     }
 
-
-
-    //get ChessBoard
     public ChessBoard getChessBoard() {
         return chessBoard;
     }

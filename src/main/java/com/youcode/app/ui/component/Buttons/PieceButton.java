@@ -35,12 +35,18 @@ public class PieceButton extends JButton implements AppComponent {
     public void addComponents() {
 
     }
-    public  void setIcon(Icon icon){
+
+
+    public  void destroyAndUpdateIcon(Icon icon){
         super.setIcon(icon);
+
     }
 
+    public void destroyIcon(){
+        super.setIcon(null);
+    }
 
-
-
-
+    public void updateComponentUI() {
+        SwingUtilities.updateComponentTreeUI(this);
+    }
 }

@@ -23,4 +23,6 @@ public class AppColors {
 
 
     public static final Color TRANSPARENT = new Color(0,0,0,0);
+    public static final Color ERROR = new Color(255, 0, 0);
+    public static final Color SUCCESS = new Color(0, 255, 0);
 }

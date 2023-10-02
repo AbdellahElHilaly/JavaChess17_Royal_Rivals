@@ -40,14 +40,12 @@ public class PanelConfig {
         public static final Color BACKGROUND_DARK = AppColors.PRIMARY_DARK;
         public static final Border CLICKED_PIECE_BORDER = BorderFactory.createLineBorder(AppColors.TEXT_DARK, 4);
         public static final Border CLICKED_EMPTY_BORDER = BorderFactory.createLineBorder(AppColors.QUATERNARY, 4);
+        public static final Border INVALID_MOVE_BORDER = BorderFactory.createLineBorder(AppColors.ERROR, 5);
+        public static final Border VALID_MOVE_BORDER = BorderFactory.createLineBorder(AppColors.SUCCESS, 5);
 
         public static Color getBackground(CellColor status) {
             return status == CellColor.LIGHT ? BACKGROUND_LIGHT : BACKGROUND_DARK;
         }
-
-
-
-
 
     }
 
@@ -60,7 +58,7 @@ public class PanelConfig {
     public static class Piece {
         public static final int WIDTH = 50;
         public static final int HEIGHT = 50;
-
-
     }
+
+
 }

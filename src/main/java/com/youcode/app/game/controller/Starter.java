@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Starter {
 
-    private static GameScreen gameScreen = new GameScreen();
+    private static final GameScreen gameScreen = new GameScreen();
 
 
     public static GameScreen getGameScreen() {

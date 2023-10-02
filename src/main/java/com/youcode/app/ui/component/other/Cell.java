@@ -5,6 +5,7 @@ import com.youcode.app.ui.guide.impl.AppPanelImpl;
 import com.youcode.app.ui.shared.utils.config.PanelConfig;
 import com.youcode.app.ui.shared.utils.enums.CellColor;
 import com.youcode.app.ui.shared.utils.enums.PiecesTypes;
+import com.youcode.libs.print.ObjectPrinter;
 import com.youcode.libs.print.Printer;
 
 import java.awt.*;
@@ -13,7 +14,7 @@ public class Cell extends AppPanelImpl {
 
     private final int row;
     private final char col;
-    private final CellColor cellColor;
+    private  CellColor cellColor;
     private Piece piece;
     private boolean isCellEmpty;
 
@@ -58,14 +59,11 @@ public class Cell extends AppPanelImpl {
         piece = new Piece(PieceStatus, cellColor, piecesType, false);
         add(piece, BorderLayout.CENTER);
         isCellEmpty = false;
-        updateCell();
+        updatePanel();
     }
 
 
-    private void updateCell() {
-        revalidate();
-        repaint();
-    }
+
 
     public Piece getPiece() {
         return piece;
@@ -91,5 +89,30 @@ public class Cell extends AppPanelImpl {
         setBorder(null);
     }
 
+    public void setValidStyle() {
+        setBorder(PanelConfig.Cell.VALID_MOVE_BORDER);
+    }
 
+    public void setInvalidStyle() {
+        setBorder(PanelConfig.Cell.INVALID_MOVE_BORDER);
+    }
+
+    public CellColor getCellColor() {
+        return cellColor;
+    }
+
+    public void removePieceAndUpdate() {
+
+        piece.initialize();
+        isCellEmpty = true;
+        updatePanel();
+    }
+
+    public void setMovingPieceAndUpdate(PiecesTypes piecesType, CellColor pieceStatus) {
+        piece.addPieceIcon(piecesType, pieceStatus);
+        piece.setPieceStatus(pieceStatus);
+        piece.setPiecesType(piecesType);
+        isCellEmpty = false;
+        updatePanel();
+    }
 }

@@ -27,13 +27,10 @@ public class LogicHelper {
         }
     }
 
-    public static int generateX(char col) {
-        return col - 'A';
+
+
+
+    public static int delta(int x, int y) {
+        return Math.abs(x - y);
     }
-
-    public static int generateY(int row) {
-        return 8 - row;
-    }
-
-
 }

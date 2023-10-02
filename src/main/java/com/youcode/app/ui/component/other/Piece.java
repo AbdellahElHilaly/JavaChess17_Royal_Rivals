@@ -1,7 +1,9 @@
 package com.youcode.app.ui.component.other;
 
 import com.youcode.app.ui.component.Buttons.PieceButton;
+import com.youcode.app.ui.component.icons.PieceIcon;
 import com.youcode.app.ui.guide.impl.AppPanelImpl;
+import com.youcode.app.ui.shared.helper.IconsHandler;
 import com.youcode.app.ui.shared.utils.Const.PiecesImages;
 import com.youcode.app.ui.shared.utils.config.PanelConfig;
 import com.youcode.app.ui.shared.utils.enums.CellColor;
@@ -13,10 +15,11 @@ import java.awt.image.BufferedImage;
 
 public class Piece extends AppPanelImpl {
 
-    private final CellColor pieceStatus;
-    private final CellColor cellColor;
-    private final PiecesTypes piecesType;
+    private  CellColor pieceStatus;
+    private final   CellColor cellColor;
+    private PiecesTypes piecesType;
     private final PieceButton pieceButton;
+    private  PieceIcon pieceIcon;
     private final boolean isCellEmpty;
 
     public Piece(CellColor pieceStatus, CellColor cellColor, PiecesTypes piecesType, boolean isCellEmpty) {
@@ -26,7 +29,6 @@ public class Piece extends AppPanelImpl {
         this.isCellEmpty = isCellEmpty;
         pieceButton = new PieceButton(cellColor);
         init();
-
     }
 
     public Piece(CellColor cellColor) {
@@ -56,6 +58,7 @@ public class Piece extends AppPanelImpl {
     @Override
     public void addComponents() {
         if (isCellEmpty) addEmptyButton(); else addButtonIcon();
+
     }
 
     private void addEmptyButton() {
@@ -64,9 +67,9 @@ public class Piece extends AppPanelImpl {
 
 
     private void addButtonIcon() {
-        BufferedImage icon = PiecesImages.get(pieceStatus == CellColor.LIGHT, piecesType);
-        assert icon != null;
-        pieceButton.setIcon(new ImageIcon(icon));
+        if(pieceIcon == null) pieceIcon = new PieceIcon();
+        pieceIcon.getIcon(IconsHandler.get(pieceStatus == CellColor.LIGHT, piecesType));
+        pieceButton.setIcon(pieceIcon);
         add(pieceButton, BorderLayout.CENTER);
     }
 
@@ -82,5 +85,28 @@ public class Piece extends AppPanelImpl {
 
     public PiecesTypes getPiecesType() {
         return piecesType;
+    }
+
+
+
+    public void addPieceIcon(PiecesTypes piecesType, CellColor pieceStatus) {
+        if(pieceIcon == null) pieceIcon = new PieceIcon();
+        pieceIcon.getIcon(IconsHandler.get(pieceStatus == CellColor.LIGHT, piecesType));
+        pieceButton.setIcon(pieceIcon);
+    }
+
+    public void  initialize() {
+        pieceButton.destroyIcon();
+        pieceButton.updateComponentUI();
+        piecesType = null;
+        pieceStatus = null;
+    }
+
+    public void setPieceStatus(CellColor pieceStatus) {
+        this.pieceStatus = pieceStatus;
+    }
+
+    public void setPiecesType(PiecesTypes piecesType) {
+        this.piecesType = piecesType;
     }
 }

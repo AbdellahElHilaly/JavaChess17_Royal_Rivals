@@ -98,6 +98,7 @@ public class Printer extends Colors {
 
     public static <C , T> void debug(Class<C> Clazz, T message) {
         printPath(Clazz);
+        endl(1);
         printDebug(message);
     }
     public static <T> void debug(T message) {

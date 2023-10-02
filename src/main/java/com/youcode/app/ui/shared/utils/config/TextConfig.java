@@ -12,6 +12,7 @@ public class TextConfig {
         public static final Font FONT = AppFonts.PRIMARY;
         public static final Color COLOR = AppColors.TEXT_LIGHT;
         public static final Integer SIZE = AppSizes.FONT_SECONDARY;
+        public static final Dimension DIMENSION = new Dimension(120, 0);
     }
 
     public static class  GameInfo{
@@ -24,8 +25,9 @@ public class TextConfig {
         public static final Font FONT = AppFonts.ELCTRONIC;
         public static final Color COLOR = AppColors.TEXT_DARK;
         public static final Integer SIZE = AppSizes.FONT_PRIMARY;
+        public static final Color FOREGROUND = AppColors.TEXT_DARK;
+        public static final Dimension DIMENSION = new Dimension(200, 0);
     }
-
 
 }
 
