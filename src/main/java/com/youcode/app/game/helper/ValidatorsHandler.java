@@ -16,13 +16,15 @@ public class ValidatorsHandler {
 
     public static boolean king(Location oldLocation, Location nextLocation, CellColor cellColor) {
         return FreeTransactionValidator.king(oldLocation, nextLocation, cellColor) &&
-                FreeReturnValidator.king();
+                FreeReturnValidator.king() &&
+                IsFriendOnTheWayValidator.king();
 
     }
 
     public static boolean queen(Location oldLocation, Location nextLocation, CellColor cellColor) {
         return FreeTransactionValidator.queen(oldLocation, nextLocation, cellColor) &&
-                FreeReturnValidator.queen();
+                FreeReturnValidator.queen() &&
+                IsFriendOnTheWayValidator.queen(oldLocation, nextLocation, cellColor);
 
     }
 
@@ -34,11 +36,13 @@ public class ValidatorsHandler {
 
     public static boolean bishop(Location oldLocation, Location nextLocation, CellColor cellColor) {
         return FreeTransactionValidator.bishop(oldLocation, nextLocation, cellColor) &&
-                FreeReturnValidator.bishop();
+                FreeReturnValidator.bishop() &&
+                IsFriendOnTheWayValidator.bishop(oldLocation, nextLocation, cellColor);
     }
 
     public static boolean knight(Location oldLocation, Location nextLocation, CellColor cellColor) {
         return FreeTransactionValidator.knight(oldLocation, nextLocation, cellColor) &&
-                FreeReturnValidator.knight();
+                FreeReturnValidator.knight()&&
+                IsFriendOnTheWayValidator.knight();
     }
 }
