@@ -13,7 +13,7 @@ import java.util.List;
  * if not the piece can move
  * if yes the piece can't move
  */
-public class IsFriendOnTheWayValidator {
+public class IsObstacleInTheWayValidator {
 
     private static final List<Cell> cells = Starter.getCellsList();
 
@@ -27,23 +27,23 @@ public class IsFriendOnTheWayValidator {
 
     public static boolean queen(Location oldLocation, Location nextLocation, CellColor cellColor) {
         if (oldLocation.getX() == nextLocation.getX())
-            return isFindFriendInTheWayVertically(oldLocation, nextLocation, cellColor);
+            return isObstacleInTheWayVertically(oldLocation, nextLocation);
 
         else if (oldLocation.getY() == nextLocation.getY())
-            return isFindFriendInTheWayHorizontally(oldLocation, nextLocation, cellColor);
+            return isObstacleInTheWayHorizontally(oldLocation, nextLocation);
 
-        else return isFindFriendInTheWayDiagonally(oldLocation, nextLocation, cellColor);
+        else return isObstacleInTheWayDiagonally(oldLocation, nextLocation);
     }
 
     public static boolean rook(Location oldLocation, Location nextLocation, CellColor pieceColor) {
         if (oldLocation.getX() == nextLocation.getX())
-            return isFindFriendInTheWayVertically(oldLocation, nextLocation, pieceColor);
+            return isObstacleInTheWayVertically(oldLocation, nextLocation);
 
-        else return isFindFriendInTheWayHorizontally(oldLocation, nextLocation, pieceColor);
+        else return isObstacleInTheWayHorizontally(oldLocation, nextLocation);
     }
 
     public static boolean bishop(Location oldLocation, Location nextLocation, CellColor pieceColor) {
-        return isFindFriendInTheWayDiagonally(oldLocation, nextLocation, pieceColor);
+        return isObstacleInTheWayDiagonally(oldLocation, nextLocation);
     }
 
     public static boolean knight() {
@@ -62,7 +62,7 @@ public class IsFriendOnTheWayValidator {
 
 
 
-    private static boolean isFindFriendInTheWayDiagonally(Location oldLocation, Location nextLocation, CellColor pieceColor) {
+    private static boolean isObstacleInTheWayDiagonally(Location oldLocation, Location nextLocation) {
         Location tempLocation = new Location();
         int index_X = generateVerticalIndex(oldLocation.getY(), nextLocation.getY());
         int index_Y = generateHorizontalIndex(oldLocation.getX(), nextLocation.getX());
@@ -70,7 +70,7 @@ public class IsFriendOnTheWayValidator {
         for (int i = oldLocation.getX() + index_Y, j = oldLocation.getY() + index_X; i != nextLocation.getX(); i += index_Y, j += index_X) {
             tempLocation.setX(i);
             tempLocation.setY(j);
-            List<Cell> friendsInTheWay = LogicHelper.findFriendsInTheWay(cells, tempLocation, pieceColor);
+            List<Cell> friendsInTheWay = LogicHelper.findObstaclesInTheWay(cells, tempLocation);
             if (!friendsInTheWay.isEmpty()) {
                 return false;
             }
@@ -79,13 +79,13 @@ public class IsFriendOnTheWayValidator {
     }
 
 
-    private static boolean isFindFriendInTheWayVertically(Location oldLocation, Location nextLocation, CellColor pieceColor) {
+    private static boolean isObstacleInTheWayVertically(Location oldLocation, Location nextLocation) {
         int index_X = generateVerticalIndex(oldLocation.getY(), nextLocation.getY());
         Location tempLocation = new Location(oldLocation.getX(), oldLocation.getY());
 
         for (int i = oldLocation.getY() + index_X; i != nextLocation.getY(); i += index_X) {
             tempLocation.setY(i);
-            List<Cell> friendsInTheWay = LogicHelper.findFriendsInTheWay(cells, tempLocation, pieceColor);
+            List<Cell> friendsInTheWay = LogicHelper.findObstaclesInTheWay(cells, tempLocation);
             if (!friendsInTheWay.isEmpty()) {
                 return false;
             }
@@ -94,12 +94,12 @@ public class IsFriendOnTheWayValidator {
 
     }
 
-    private static boolean isFindFriendInTheWayHorizontally(Location oldLocation, Location nextLocation, CellColor pieceColor) {
+    private static boolean isObstacleInTheWayHorizontally(Location oldLocation, Location nextLocation) {
         int index_Y = generateHorizontalIndex(oldLocation.getX(), nextLocation.getX());
         Location tempLocation = new Location(oldLocation.getX(), oldLocation.getY());
         for (int i = oldLocation.getX() + index_Y; i != nextLocation.getX(); i += index_Y) {
             tempLocation.setX(i);
-            List<Cell> friendsInTheWay = LogicHelper.findFriendsInTheWay(cells, tempLocation, pieceColor);
+            List<Cell> friendsInTheWay = LogicHelper.findObstaclesInTheWay(cells, tempLocation);
             if (!friendsInTheWay.isEmpty()) {
                 return false;
             }

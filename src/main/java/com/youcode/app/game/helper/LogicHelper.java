@@ -4,10 +4,7 @@ import com.youcode.app.game.model.entity.Location;
 import com.youcode.app.shared.enums.CellColor;
 import com.youcode.app.ui.component.other.Cell;
 import com.youcode.app.shared.enums.PiecesTypes;
-import com.youcode.libs.print.ObjectPrinter;
-import com.youcode.libs.print.Printer;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -53,15 +50,9 @@ public class LogicHelper {
         ).toList();
     }
 
-    public static List<Cell> findFriendsInTheWay(List<Cell> cells, Location tempLocation, CellColor pieceColor) {
+    public static List<Cell> findObstaclesInTheWay(List<Cell> cells, Location tempLocation) {
         List<Cell> cellsInTheWay = findCellsInTheWay(cells, tempLocation);
-        return cellsInTheWay.stream().filter(cell -> {
-                    if (cell.isEmpty()) {
-                        return false;
-                    } else {
-                        return cell.getPiece().getPieceColor() == pieceColor;
-                    }
-                }
+        return cellsInTheWay.stream().filter(cell -> !cell.isEmpty()
         ).toList();
     }
 }
