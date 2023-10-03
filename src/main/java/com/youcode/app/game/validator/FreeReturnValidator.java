@@ -1,7 +1,9 @@
 package com.youcode.app.game.validator;
 
+import com.youcode.app.game.controller.BoardInfoController;
 import com.youcode.app.game.model.entity.Location;
 import com.youcode.app.shared.enums.CellColor;
+import com.youcode.app.shared.enums.PiecesTypes;
 
 /**
  * This class is responsible for validating the free return of the pieces;
@@ -10,8 +12,8 @@ import com.youcode.app.shared.enums.CellColor;
 public class FreeReturnValidator {
 
     public static boolean pawn(Location oldLocation, Location nextLocation, CellColor pieceColor) {
-       if(pieceColor == CellColor.DARK) return nextLocation.getY() > oldLocation.getY();
-       else return nextLocation.getY() < oldLocation.getY();
+       if(pieceColor == CellColor.DARK) return validatorHandler(nextLocation.getY() > oldLocation.getY(), PiecesTypes.PAWN);
+       else return validatorHandler(nextLocation.getY() < oldLocation.getY(), PiecesTypes.PAWN);
     }
 
     public static boolean king() {
@@ -33,6 +35,12 @@ public class FreeReturnValidator {
 
     public static boolean knight() {
         return true;
+    }
+
+    private static boolean validatorHandler(boolean condition, PiecesTypes pieces) {
+        if (!condition) BoardInfoController.warning(pieces + " can't move back");
+        else BoardInfoController.reset();
+        return condition;
     }
 
 }

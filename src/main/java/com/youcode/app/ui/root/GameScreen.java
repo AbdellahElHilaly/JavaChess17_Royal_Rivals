@@ -51,6 +51,13 @@ public class GameScreen extends AppFrameImpl {
         return boardContainer;
     }
 
+    public Header getHeader() {
+        return header;
+    }
+
+    public Footer getFooter() {
+        return footer;
+    }
 }
 
 

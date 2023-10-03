@@ -10,7 +10,7 @@ public class AppFonts {
 
     private static Font tempFont;
 
-    public static final Font PRIMARY = new Font("Roboto", Font.BOLD, 25);
+    public static final Font PRIMARY = new Font("Roboto", Font.BOLD, 20);
     public static final Font ELCTRONIC =  getElectronicFont();
 
     private static Font getElectronicFont() {

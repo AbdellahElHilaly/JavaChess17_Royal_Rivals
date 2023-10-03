@@ -1,7 +1,9 @@
 package com.youcode.app.game.validator;
 
+import com.youcode.app.game.controller.BoardInfoController;
 import com.youcode.app.game.controller.Starter;
 import com.youcode.app.game.model.entity.Location;
+import com.youcode.app.shared.enums.PiecesTypes;
 import com.youcode.app.ui.component.other.Cell;
 import com.youcode.app.game.helper.LogicHelper;
 import com.youcode.app.shared.enums.CellColor;
@@ -27,34 +29,28 @@ public class IsObstacleInTheWayValidator {
 
     public static boolean queen(Location oldLocation, Location nextLocation, CellColor cellColor) {
         if (oldLocation.getX() == nextLocation.getX())
-            return isObstacleInTheWayVertically(oldLocation, nextLocation);
+            return validatorHandler(isObstacleInTheWayVertically(oldLocation, nextLocation), PiecesTypes.QUEEN);
 
         else if (oldLocation.getY() == nextLocation.getY())
-            return isObstacleInTheWayHorizontally(oldLocation, nextLocation);
+            return validatorHandler(isObstacleInTheWayHorizontally(oldLocation, nextLocation), PiecesTypes.QUEEN);
 
-        else return isObstacleInTheWayDiagonally(oldLocation, nextLocation);
+        else return validatorHandler(isObstacleInTheWayDiagonally(oldLocation, nextLocation), PiecesTypes.QUEEN);
     }
 
     public static boolean rook(Location oldLocation, Location nextLocation, CellColor pieceColor) {
         if (oldLocation.getX() == nextLocation.getX())
-            return isObstacleInTheWayVertically(oldLocation, nextLocation);
+            return validatorHandler(isObstacleInTheWayVertically(oldLocation, nextLocation), PiecesTypes.ROOK);
 
-        else return isObstacleInTheWayHorizontally(oldLocation, nextLocation);
+        else return validatorHandler(isObstacleInTheWayHorizontally(oldLocation, nextLocation), PiecesTypes.ROOK);
     }
 
     public static boolean bishop(Location oldLocation, Location nextLocation, CellColor pieceColor) {
-        return isObstacleInTheWayDiagonally(oldLocation, nextLocation);
+        return validatorHandler(isObstacleInTheWayDiagonally(oldLocation, nextLocation), PiecesTypes.BISHOP);
     }
 
     public static boolean knight() {
-        return true;
+        return validatorHandler(true, PiecesTypes.KNIGHT);
     }
-
-
-
-
-
-
 
 
 
@@ -122,6 +118,13 @@ public class IsObstacleInTheWayValidator {
         } else {
             return 1;
         }
+    }
+
+
+    private static boolean validatorHandler(boolean condition, PiecesTypes pieces) {
+        if (!condition) BoardInfoController.warning(pieces + " have an obstacle in the way");
+        else BoardInfoController.reset();
+        return condition;
     }
 
 

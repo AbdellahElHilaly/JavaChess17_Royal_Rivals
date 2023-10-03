@@ -52,6 +52,8 @@ public class ClickDetector {
         firstPieceClicked(clickedCell);
         changePieceClicked(clickedCell);
         cancelAndChangePieceClicked(clickedCell);
+        BoardInfoController.focus(clickedCell);
+        BasicArbiter.checkFirstMove();
     }
 
 

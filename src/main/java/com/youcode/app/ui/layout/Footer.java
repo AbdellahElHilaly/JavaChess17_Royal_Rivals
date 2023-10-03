@@ -8,15 +8,15 @@ import java.awt.*;
 
 public class Footer extends AppPanelImpl {
 
-    private  static  final TimerView timerView1 = new TimerView();
-    private  static  final TimerView timerView2 = new TimerView();
+    private  static   final TimerView timerViewDark = new TimerView();
+    private  static   final TimerView timerViewLight = new TimerView();
     public Footer() {
         init();
     }
 
     @Override
     public void setLayout() {
-        setLayout(new BorderLayout());
+        setLayout(new GridLayout(1, 2));
     }
 
     @Override
@@ -31,7 +31,17 @@ public class Footer extends AppPanelImpl {
 
     @Override
     public void addComponents() {
-        add(timerView1, BorderLayout.WEST);
-        add(timerView2, BorderLayout.EAST);
+        timerViewDark.setMarginLeft(60);
+        timerViewLight.setMarginLeft(306);
+        add(timerViewDark);
+        add(timerViewLight);
+    }
+
+    public TimerView getTimerViewDark() {
+        return timerViewDark;
+    }
+
+    public TimerView getTimerViewLight() {
+        return timerViewLight;
     }
 }

@@ -1,9 +1,12 @@
 package com.youcode.app.ui.component.text;
 
+import com.youcode.app.shared.config.PanelConfig;
+import com.youcode.app.shared.enums.CellColor;
 import com.youcode.app.ui.guide.AppComponent;
 import com.youcode.app.shared.config.TextConfig;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
 public class TextPlayer extends JLabel implements AppComponent {
 
@@ -20,19 +23,28 @@ public class TextPlayer extends JLabel implements AppComponent {
     public void setStyle() {
         setFont(TextConfig.PlayerName.FONT);
         setForeground(TextConfig.PlayerName.COLOR);
+        setBackground(PanelConfig.Header.BACKGROUND);
+
+        int padding_w = 80;
+        int padding_h = PanelConfig.Header.HEIGHT;
+        setBorder(new EmptyBorder(padding_h, padding_w, padding_h, padding_w));
     }
 
     @Override
     public void build() {
         setHorizontalAlignment(SwingConstants.CENTER);
         setVerticalAlignment(SwingConstants.CENTER);
-        setBorder(BorderFactory.createEmptyBorder(0, marginLeft, 0, marginRight));
-        setOpaque(false);
+        setOpaque(true);
 
     }
 
     @Override
     public void addComponents() {
 
+    }
+
+    public void setPlayerName(String name, CellColor color) {
+        String icon = color == CellColor.DARK ? "⚫" : "⚪";
+        setText(icon + " " + name);
     }
 }

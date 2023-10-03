@@ -1,6 +1,8 @@
 package com.youcode.app.game.helper;
 
+import com.youcode.app.game.controller.Starter;
 import com.youcode.app.game.model.entity.Location;
+import com.youcode.app.game.model.entity.Player;
 import com.youcode.app.shared.enums.CellColor;
 import com.youcode.app.ui.component.other.Cell;
 import com.youcode.app.shared.enums.PiecesTypes;
@@ -14,21 +16,14 @@ public class LogicHelper {
     }
 
     public static Integer generatePieceValue(PiecesTypes piecesType) {
-        switch (piecesType) {
-            case KING:
-                return 10000;
-            case QUEEN:
-                return 9;
-            case ROOK:
-                return 5;
-            case BISHOP:
-            case KNIGHT:
-                return 3;
-            case PAWN:
-                return 1;
-            default:
-                return 0;
-        }
+        return switch (piecesType) {
+            case KING -> 10000;
+            case QUEEN -> 9;
+            case ROOK -> 5;
+            case BISHOP, KNIGHT -> 3;
+            case PAWN -> 1;
+            default -> 0;
+        };
     }
 
 
@@ -54,5 +49,11 @@ public class LogicHelper {
         List<Cell> cellsInTheWay = findCellsInTheWay(cells, tempLocation);
         return cellsInTheWay.stream().filter(cell -> !cell.isEmpty()
         ).toList();
+    }
+
+    public static Player getPlayerByCell(Cell clickedCell) {
+        CellColor cellColor = clickedCell.getPiece().getPieceColor();
+        return cellColor == CellColor.DARK ? Starter.getPlayer(CellColor.DARK) : Starter.getPlayer(CellColor.LIGHT);
+
     }
 }
