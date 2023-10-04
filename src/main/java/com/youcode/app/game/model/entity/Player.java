@@ -43,5 +43,19 @@ public class Player {
         this.time = time;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public void setColor(CellColor color) {
+        this.color = color;
+    }
+
+    public void addScore(Integer integer) {
+        this.score += integer;
+    }
 }

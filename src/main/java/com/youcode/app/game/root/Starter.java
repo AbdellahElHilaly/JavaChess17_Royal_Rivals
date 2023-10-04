@@ -1,5 +1,6 @@
-package com.youcode.app.game.controller;
+package com.youcode.app.game.root;
 
+import com.youcode.app.game.controller.TextPlayerController;
 import com.youcode.app.game.model.entity.Player;
 import com.youcode.app.shared.enums.CellColor;
 import com.youcode.app.ui.component.other.Cell;
@@ -20,7 +21,7 @@ public class Starter {
 
     public static void drawBoard() {
         gameScreen.init();
-        TextPlayerController.setPlayerName(player1, player2);
+        TextPlayerController.setPlayerInfo(player1, player2);
     }
 
     public static void arrangePieces() {

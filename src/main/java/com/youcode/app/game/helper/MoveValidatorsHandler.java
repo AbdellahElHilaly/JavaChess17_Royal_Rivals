@@ -1,12 +1,12 @@
 package com.youcode.app.game.helper;
 
-import com.youcode.app.game.validator.FreeReturnValidator;
-import com.youcode.app.game.validator.FreeTransactionValidator;
+import com.youcode.app.game.validator.move.FreeReturnValidator;
+import com.youcode.app.game.validator.move.FreeTransactionValidator;
 import com.youcode.app.game.model.entity.Location;
-import com.youcode.app.game.validator.IsObstacleInTheWayValidator;
+import com.youcode.app.game.validator.move.IsObstacleInTheWayValidator;
 import com.youcode.app.shared.enums.CellColor;
 
-public class ValidatorsHandler {
+public class MoveValidatorsHandler {
 
 
     public static boolean pawn(Location oldLocation, Location nextLocation, CellColor cellColor) {

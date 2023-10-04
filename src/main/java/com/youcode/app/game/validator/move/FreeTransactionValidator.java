@@ -1,8 +1,7 @@
-package com.youcode.app.game.validator;
+package com.youcode.app.game.validator.move;
 
 import com.youcode.app.game.arbiter.BasicArbiter;
 import com.youcode.app.game.controller.BoardInfoController;
-import com.youcode.app.game.helper.ValidatorsHandler;
 import com.youcode.app.game.model.entity.Location;
 import com.youcode.app.game.helper.LogicHelper;
 import com.youcode.app.shared.enums.CellColor;

@@ -66,7 +66,7 @@ public class Piece extends AppPanelImpl {
 
     private void addButtonIcon() {
         if(pieceIcon == null) pieceIcon = new PieceIcon();
-        pieceIcon.getIcon(IconsHandler.get(pieceColor == CellColor.LIGHT, piecesType));
+        pieceIcon.getIcon(IconsHandler.get(pieceColor, piecesType));
         pieceButton.setIcon(pieceIcon);
         add(pieceButton, BorderLayout.CENTER);
     }
@@ -87,9 +87,9 @@ public class Piece extends AppPanelImpl {
 
 
 
-    public void addPieceIcon(PiecesTypes piecesType, CellColor pieceStatus) {
+    public void addPieceIcon(PiecesTypes piecesType, CellColor pieceColor) {
         if(pieceIcon == null) pieceIcon = new PieceIcon();
-        pieceIcon.getIcon(IconsHandler.get(pieceStatus == CellColor.LIGHT, piecesType));
+        pieceIcon.getIcon(IconsHandler.get(pieceColor, piecesType));
         pieceButton.setIcon(pieceIcon);
     }
 

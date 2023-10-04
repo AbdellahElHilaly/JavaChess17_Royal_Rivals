@@ -1,10 +1,6 @@
 package com.youcode.libs.logic;
 
 
-import com.youcode.app.game.controller.Starter;
-import com.youcode.app.game.model.entity.Player;
-import com.youcode.app.shared.enums.CellColor;
-import com.youcode.app.ui.component.other.Cell;
 import com.youcode.libs.print.Printer;
 
 import java.text.ParseException;

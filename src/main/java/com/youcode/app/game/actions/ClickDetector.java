@@ -1,8 +1,10 @@
-package com.youcode.app.game.controller;
+package com.youcode.app.game.actions;
 
 import com.youcode.app.game.arbiter.BasicArbiter;
+import com.youcode.app.game.controller.BoardInfoController;
 import com.youcode.app.game.helper.LocationGenerator;
-import com.youcode.app.game.validator.MoveValidator;
+import com.youcode.app.game.validator.kill.KillingValidator;
+import com.youcode.app.game.validator.move.MoveValidator;
 import com.youcode.app.ui.component.other.Cell;
 import com.youcode.libs.print.ObjectPrinter;
 import com.youcode.libs.print.Printer;
@@ -33,12 +35,12 @@ public class ClickDetector {
 
     private static void handelClick(Cell clickedCell) {
         cellClickedFocus(clickedCell);
+
         printInfo(clickedCell);
-        boolean isValidate = MoveValidator.validate(oldetCell, nextCell);
-        if (isValidate) {
+
+        if (MoveValidator.validate(oldetCell, nextCell)) {
             PieceMover.move(oldetCell, nextCell);
-        }
-        else PieceMover.confirm_move_click = false;
+        } else PieceMover.confirm_move_click = false;
     }
 
 
@@ -48,12 +50,21 @@ public class ClickDetector {
     }
 
     private static void handlePieceClickedCell(Cell clickedCell) {
-        if(BasicArbiter.currentPlayer != clickedCell.getPiece().getPieceColor()) return;
-        firstPieceClicked(clickedCell);
-        changePieceClicked(clickedCell);
-        cancelAndChangePieceClicked(clickedCell);
-        BoardInfoController.focus(clickedCell);
-        BasicArbiter.checkFirstMove();
+        if (BasicArbiter.currentPlayer != clickedCell.getPiece().getPieceColor()){
+            if(nextCell != null) {
+                nextCell.setDefaultStyle();
+                PieceKiller.handelKilling(oldetCell, clickedCell,nextCell);
+            }
+            nextCell = clickedCell;
+        }
+        else{
+            firstPieceClicked(clickedCell);
+            changePieceClicked(clickedCell);
+            cancelAndChangePieceClicked(clickedCell);
+            BoardInfoController.focus(clickedCell);
+            BasicArbiter.checkFirstMove();
+        }
+
     }
 
 
@@ -82,10 +93,10 @@ public class ClickDetector {
     }
 
     private static void handleEmptyClickedCell(Cell clickedCell) {
-        if(oldetCell == null) {
+        PieceKiller.confirm_kill_click = false;
+        if (oldetCell == null) {
             Printer.error("can't move from cell is empty!");
-        }
-        else if (nextCell == null) {
+        } else if (nextCell == null) {
             newEmptyCellClicked(clickedCell);
         } else {
             if (nextCell == clickedCell) PieceMover.confirm_move_click = true;
@@ -103,16 +114,12 @@ public class ClickDetector {
     private static void newEmptyCellClicked(Cell clickedCell) {
         nextCell = clickedCell;
         nextCell.setEmptyClickedStyle();
-
-
     }
 
     private static void printInfo(Cell clickedCell) {
-
-        ObjectPrinter.json(clickedCell.getCellInfo(), "Cell Info");
-        if(oldetCell != null) ObjectPrinter.json(LocationGenerator.get(oldetCell), "old Location");
-        if(nextCell != null)  ObjectPrinter.json(LocationGenerator.get(nextCell), "next Location");
+//        ObjectPrinter.json(clickedCell.getCellInfo(), "Cell Info");
+        if (oldetCell != null) ObjectPrinter.json(LocationGenerator.get(oldetCell), "old Location");
+        if (nextCell != null) ObjectPrinter.json(LocationGenerator.get(nextCell), "next Location");
     }
-
 
 }

@@ -58,6 +58,8 @@ public class GameScreen extends AppFrameImpl {
     public Footer getFooter() {
         return footer;
     }
+
+
 }
 
 

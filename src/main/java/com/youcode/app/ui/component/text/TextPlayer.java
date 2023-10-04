@@ -43,7 +43,7 @@ public class TextPlayer extends JLabel implements AppComponent {
 
     }
 
-    public void setPlayerName(String name, CellColor color) {
+    public void setPlayerInfo(String name, CellColor color) {
         String icon = color == CellColor.DARK ? "⚫" : "⚪";
         setText(icon + " " + name);
     }

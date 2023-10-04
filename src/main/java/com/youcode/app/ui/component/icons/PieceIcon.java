@@ -8,7 +8,6 @@ import java.awt.image.BufferedImage;
 public class PieceIcon extends ImageIcon implements AppComponent {
 
     public PieceIcon() {
-
         init();
     }
 

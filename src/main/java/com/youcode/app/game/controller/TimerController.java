@@ -1,5 +1,6 @@
 package com.youcode.app.game.controller;
 
+import com.youcode.app.game.root.Starter;
 import com.youcode.app.shared.enums.CellColor;
 import com.youcode.app.ui.component.text.TimerView;
 

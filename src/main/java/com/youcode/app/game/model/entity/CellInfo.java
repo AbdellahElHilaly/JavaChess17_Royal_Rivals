@@ -13,6 +13,8 @@ public class CellInfo {
     private final PiecesTypes piecesType;
     private final Integer pieceValue;
 
+
+
     public CellInfo(int row, char col, boolean isEmpty, CellColor cellColor, CellColor pieceColor, PiecesTypes piecesType) {
         this.row = row;
         this.col = col;
@@ -62,4 +64,19 @@ public class CellInfo {
         this.cellColor = cellColor;
     }
 
+    public CellColor getCellColor() {
+        return cellColor;
+    }
+
+    public CellColor getPieceColor() {
+        return pieceColor;
+    }
+
+    public PiecesTypes getPiecesType() {
+        return piecesType;
+    }
+
+    public Integer getPieceValue() {
+        return pieceValue;
+    }
 }

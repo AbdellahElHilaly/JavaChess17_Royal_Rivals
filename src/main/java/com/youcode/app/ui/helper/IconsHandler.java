@@ -1,14 +1,15 @@
 package com.youcode.app.ui.helper;
 
 import com.youcode.app.shared.Const.PiecesImages;
+import com.youcode.app.shared.enums.CellColor;
 import com.youcode.app.shared.enums.PiecesTypes;
 
 import java.awt.image.BufferedImage;
 
 
 public class IconsHandler {
-    public static BufferedImage get(boolean isLight, PiecesTypes piecesTypes) {
-        if (isLight) {
+    public static BufferedImage get(CellColor pieceColor, PiecesTypes piecesTypes) {
+        if (pieceColor == CellColor.LIGHT) {
             return switch (piecesTypes) {
                 case PAWN -> PiecesImages.LIGHT_PAWN;
                 case KNIGHT -> PiecesImages.LIGHT_KNIGHT;

@@ -1,4 +1,4 @@
-package com.youcode.app.game.controller;
+package com.youcode.app.game.actions;
 
 import com.youcode.app.game.arbiter.BasicArbiter;
 import com.youcode.app.ui.component.other.Cell;

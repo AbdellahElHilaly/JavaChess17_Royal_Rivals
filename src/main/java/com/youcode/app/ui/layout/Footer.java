@@ -45,3 +45,5 @@ public class Footer extends AppPanelImpl {
         return timerViewLight;
     }
 }
+
+

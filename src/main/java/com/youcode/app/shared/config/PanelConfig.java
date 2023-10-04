@@ -11,6 +11,11 @@ import java.awt.*;
 public class PanelConfig {
 
 
+    public static class SideBar {
+        public static final Integer WIDTH = (AppSizes.MAX_WIDTH - Board.WIDTH)/2;
+        public static final Integer HEIGHT = Board.HEIGHT;
+        public static final Color BACKGROUND = AppColors.BACKGROUND;
+    }
     public static class Footer {
         public static final Integer WIDTH = AppSizes.MAX_WIDTH;
         public static final Integer HEIGHT = AppSizes.BANNER_HEIGHT;

@@ -1,6 +1,6 @@
 package com.youcode.app.game.arbiter;
 
-import com.youcode.app.game.controller.Starter;
+import com.youcode.app.game.root.Starter;
 import com.youcode.app.game.controller.TimerController;
 import com.youcode.app.game.model.entity.Location;
 import com.youcode.app.shared.enums.CellColor;
@@ -25,21 +25,19 @@ public class BasicArbiter {
 
             TimerController.startCount(CellColor.LIGHT);
 
-            ObjectPrinter.json(Starter.getPlayer(currentPlayer),"currentPlayer");
+            ObjectPrinter.json(Starter.getPlayer(currentPlayer), "currentPlayer");
 
             currentPlayer = CellColor.LIGHT;
 
-        } else if (currentPlayer == CellColor.LIGHT){
+        } else if (currentPlayer == CellColor.LIGHT) {
 
             TimerController.pauseCount(CellColor.LIGHT);
 
             Starter.getPlayer(CellColor.LIGHT).setTime(TimerController.getText(CellColor.LIGHT));
 
             TimerController.startCount(CellColor.DARK);
-            ObjectPrinter.json(Starter.getPlayer(currentPlayer),"currentPlayer");
             currentPlayer = CellColor.DARK;
         }
-
 
 
     }

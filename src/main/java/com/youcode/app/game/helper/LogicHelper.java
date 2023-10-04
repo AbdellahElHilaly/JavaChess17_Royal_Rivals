@@ -1,6 +1,6 @@
 package com.youcode.app.game.helper;
 
-import com.youcode.app.game.controller.Starter;
+import com.youcode.app.game.root.Starter;
 import com.youcode.app.game.model.entity.Location;
 import com.youcode.app.game.model.entity.Player;
 import com.youcode.app.shared.enums.CellColor;

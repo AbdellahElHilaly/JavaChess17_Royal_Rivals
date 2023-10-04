@@ -1,4 +1,4 @@
-package com.youcode.app.game.validator;
+package com.youcode.app.game.validator.move;
 
 import com.youcode.app.game.controller.BoardInfoController;
 import com.youcode.app.game.model.entity.Location;
