@@ -10,6 +10,7 @@ import com.youcode.app.ui.helper.IconsHandler;
 import javax.swing.*;
 import java.awt.*;
 
+
 public class SideBare extends AppPanelImpl {
 
     /**

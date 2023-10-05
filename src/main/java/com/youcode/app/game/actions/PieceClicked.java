@@ -3,8 +3,7 @@ package com.youcode.app.game.actions;
 import com.youcode.app.game.arbiter.BasicArbiter;
 import com.youcode.app.game.controller.BoardInfoController;
 import com.youcode.app.game.helper.LocationGenerator;
-import com.youcode.app.game.validator.kill.KillingValidator;
-import com.youcode.app.game.validator.move.MoveValidator;
+import com.youcode.app.game.validator.move.MoveValidatorRoot;
 import com.youcode.app.ui.component.other.Cell;
 import com.youcode.libs.print.ObjectPrinter;
 import com.youcode.libs.print.Printer;
@@ -13,14 +12,14 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 
-public class ClickDetector {
+public class PieceClicked {
 
     private static Cell oldetCell;
     private static Cell nextCell;
 
 
     public static void startDetection(List<Cell> cellList) {
-        cellList.forEach(ClickDetector::addDetection);
+        cellList.forEach(PieceClicked::addDetection);
     }
 
     private static void addDetection(Cell clickedCell) {
@@ -38,7 +37,7 @@ public class ClickDetector {
 
         printInfo(clickedCell);
 
-        if (MoveValidator.validate(oldetCell, nextCell)) {
+        if (MoveValidatorRoot.validate(oldetCell, nextCell)) {
             PieceMover.move(oldetCell, nextCell);
         } else PieceMover.confirm_move_click = false;
     }

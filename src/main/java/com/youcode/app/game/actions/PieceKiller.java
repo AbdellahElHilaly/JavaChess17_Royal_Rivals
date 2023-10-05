@@ -6,7 +6,7 @@ import com.youcode.app.game.controller.SideBareController;
 import com.youcode.app.game.controller.TextPlayerController;
 import com.youcode.app.game.helper.LogicHelper;
 import com.youcode.app.game.model.entity.Player;
-import com.youcode.app.game.validator.kill.KillingValidator;
+import com.youcode.app.game.validator.kill.KillingValidatorRoot;
 import com.youcode.app.ui.component.other.Cell;
 import com.youcode.libs.print.ObjectPrinter;
 
@@ -28,7 +28,7 @@ public class PieceKiller {
 
     private static boolean killingIsValid(Cell killerCell, Cell victimCell) {
         if (nullCellChecked(killerCell, victimCell)) return false;
-        else return KillingValidator.validate(killerCell, victimCell);
+        else return KillingValidatorRoot.validate(killerCell, victimCell);
     }
 
 
@@ -75,6 +75,7 @@ public class PieceKiller {
         TextPlayerController.updatePlayerInfo(killerPlayer);
 
         BoardInfoController.success(message);
+
     }
 }
 

@@ -2,13 +2,12 @@ package com.youcode.app.game.validator.kill;
 
 import com.youcode.app.game.helper.KillingValidatorHandler;
 import com.youcode.app.game.helper.LocationGenerator;
-import com.youcode.app.game.helper.MoveValidatorsHandler;
 import com.youcode.app.game.model.entity.Location;
 import com.youcode.app.shared.enums.CellColor;
 import com.youcode.app.shared.enums.PiecesTypes;
 import com.youcode.app.ui.component.other.Cell;
 
-public class KillingValidator {
+public class KillingValidatorRoot {
     private  static PiecesTypes type;
     private static final Location killerLocation = new Location();
     private static final   Location victimeLocation = new Location();

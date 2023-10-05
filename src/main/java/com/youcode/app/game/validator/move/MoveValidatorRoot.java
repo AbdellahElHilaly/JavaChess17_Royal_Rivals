@@ -7,7 +7,7 @@ import com.youcode.app.ui.component.other.Cell;
 import com.youcode.app.shared.enums.CellColor;
 import com.youcode.app.shared.enums.PiecesTypes;
 
-public class MoveValidator {
+public class MoveValidatorRoot {
     private  static PiecesTypes type;
     private static final Location oldLocation = new Location();
     private static final   Location nextLocation = new Location();
@@ -21,22 +21,21 @@ public class MoveValidator {
 
         getCellDetails(oldetCell, nextCell);
 
-        switch (type){
-            case KING:
-                return setValidationStyle(MoveValidatorsHandler.king(oldLocation, nextLocation,currentPlayerColor) , nextCell);
-            case QUEEN:
-                return setValidationStyle(MoveValidatorsHandler.queen(oldLocation, nextLocation,currentPlayerColor) , nextCell);
-            case ROOK:
-                return setValidationStyle(MoveValidatorsHandler.rook(oldLocation, nextLocation,currentPlayerColor) , nextCell);
-            case BISHOP:
-                return setValidationStyle(MoveValidatorsHandler.bishop(oldLocation, nextLocation,currentPlayerColor) , nextCell);
-            case KNIGHT:
-                return setValidationStyle(MoveValidatorsHandler.knight(oldLocation, nextLocation,currentPlayerColor) , nextCell);
-            case PAWN:
-                return setValidationStyle(MoveValidatorsHandler.pawn(oldLocation, nextLocation,currentPlayerColor) , nextCell);
-            default:
-                return false;
-        }
+        return switch (type) {
+            case KING ->
+                    setValidationStyle(MoveValidatorsHandler.king(oldLocation, nextLocation, currentPlayerColor), nextCell);
+            case QUEEN ->
+                    setValidationStyle(MoveValidatorsHandler.queen(oldLocation, nextLocation, currentPlayerColor), nextCell);
+            case ROOK ->
+                    setValidationStyle(MoveValidatorsHandler.rook(oldLocation, nextLocation, currentPlayerColor), nextCell);
+            case BISHOP ->
+                    setValidationStyle(MoveValidatorsHandler.bishop(oldLocation, nextLocation, currentPlayerColor), nextCell);
+            case KNIGHT ->
+                    setValidationStyle(MoveValidatorsHandler.knight(oldLocation, nextLocation, currentPlayerColor), nextCell);
+            case PAWN ->
+                    setValidationStyle(MoveValidatorsHandler.pawn(oldLocation, nextLocation, currentPlayerColor), nextCell);
+            default -> false;
+        };
     }
 
 

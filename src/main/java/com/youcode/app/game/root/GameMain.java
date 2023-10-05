@@ -1,7 +1,7 @@
 package com.youcode.app.game.root;
 
 
-import com.youcode.app.game.actions.ClickDetector;
+import com.youcode.app.game.actions.PieceClicked;
 
 public class GameMain {
 
@@ -9,7 +9,7 @@ public class GameMain {
 
         Starter.drawBoard();
         Starter.arrangePieces();
-        ClickDetector.startDetection(Starter.getCellsList());
+        PieceClicked.startDetection(Starter.getCellsList());
 
     }
 }

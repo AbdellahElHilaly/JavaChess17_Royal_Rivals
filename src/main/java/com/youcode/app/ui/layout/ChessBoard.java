@@ -78,4 +78,9 @@ public class ChessBoard extends AppPanelImpl {
     public List<Cell> getCellsList() {
         return cellsList;
     }
+
+    public void reset() {
+        cellsList.forEach(Cell::reset); // for each with stream is better , i test it in the past
+
+    }
 }

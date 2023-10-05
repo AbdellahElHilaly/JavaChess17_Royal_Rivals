@@ -14,5 +14,4 @@ public interface AppPanel {
     void addComponents();
 
 
-
 }

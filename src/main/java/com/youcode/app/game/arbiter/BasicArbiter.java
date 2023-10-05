@@ -48,4 +48,18 @@ public class BasicArbiter {
             TimerController.startCount(CellColor.DARK);
         }
     }
+
+    public static  void  resetGame(){
+        Starter.getGameScreen().getBoardContainer().getChessBoard().reset();
+        Starter.getGameScreen().getBoardContainer().getSideBareDark().reset();
+        Starter.getGameScreen().getBoardContainer().getSideBareLight().reset();
+        Starter.getPlayer(CellColor.DARK).reset();
+        Starter.getPlayer(CellColor.LIGHT).reset();
+        Starter.arrangePieces();
+        TimerController.reset(CellColor.LIGHT);
+        TimerController.reset(CellColor.DARK);
+    }
+
+
+
 }

@@ -113,4 +113,11 @@ public class Cell extends AppPanelImpl {
         isCellEmpty = false;
         updatePanel();
     }
+
+    public void reset() {
+        remove(piece);
+        addVirtualPiece();
+        isCellEmpty = true;
+        updatePanel();
+    }
 }

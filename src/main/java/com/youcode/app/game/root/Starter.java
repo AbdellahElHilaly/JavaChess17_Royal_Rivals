@@ -35,4 +35,7 @@ public class Starter {
     public static Player getPlayer(CellColor cellColor) {
         return cellColor == CellColor.DARK ? player1 : player2;
     }
+
+
+
 }

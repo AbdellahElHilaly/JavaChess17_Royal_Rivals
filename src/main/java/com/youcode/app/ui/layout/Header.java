@@ -32,7 +32,6 @@ public class Header extends AppPanelImpl {
     public void build() {
         setPreferredSize(new Dimension(PanelConfig.Footer.WIDTH, PanelConfig.Footer.HEIGHT));
         setOpaque(true);
-
     }
 
     @Override

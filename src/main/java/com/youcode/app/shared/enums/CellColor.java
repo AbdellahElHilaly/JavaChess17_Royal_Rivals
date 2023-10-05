@@ -4,3 +4,4 @@ public enum CellColor {
     DARK,
     LIGHT,
 }
+

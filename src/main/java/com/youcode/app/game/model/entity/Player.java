@@ -20,7 +20,6 @@ public class Player {
         this.color = color;
         this.score = 0;
         this.time = "00:00:00:00";
-
     }
 
     public String getName() {
@@ -57,5 +56,10 @@ public class Player {
 
     public void addScore(Integer integer) {
         this.score += integer;
+    }
+
+    public void reset() {
+        this.score = 0;
+        this.time = "00:00:00:00";
     }
 }
