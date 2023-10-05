@@ -38,7 +38,6 @@ public class Cell extends AppPanelImpl {
 
     @Override
     public void build() {
-
     }
 
     @Override
@@ -100,16 +99,15 @@ public class Cell extends AppPanelImpl {
     }
 
     public void removePieceAndUpdate() {
-
         piece.initialize();
         isCellEmpty = true;
         updatePanel();
     }
 
-    public void setMovingPieceAndUpdate(PiecesTypes piecesType, CellColor pieceStatus) {
-        piece.addPieceIcon(piecesType, pieceStatus);
-        piece.setPieceColor(pieceStatus);
-        piece.setPiecesType(piecesType);
+    public void replacePieceAndUpdate(PiecesTypes newPiecesType, CellColor newPieceColor) {
+        piece.addPieceIcon(newPiecesType, newPieceColor);
+        piece.setPieceColor(newPieceColor);
+        piece.setPiecesType(newPiecesType);
         isCellEmpty = false;
         updatePanel();
     }
@@ -120,4 +118,6 @@ public class Cell extends AppPanelImpl {
         isCellEmpty = true;
         updatePanel();
     }
+
+
 }

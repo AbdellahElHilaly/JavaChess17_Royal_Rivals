@@ -7,6 +7,8 @@ import com.youcode.app.shared.config.PanelConfig;
 import com.youcode.app.shared.enums.CellColor;
 import com.youcode.app.shared.enums.PiecesTypes;
 
+import javax.swing.border.BevelBorder;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.util.ArrayList;
@@ -30,12 +32,14 @@ public class ChessBoard extends AppPanelImpl {
     public void setStyle() {
         setBackground(PanelConfig.Board.BACKGROUND);
         setBorder(new LineBorder(PanelConfig.Board.BORDER_COLOR, PanelConfig.Board.BORDER_THICKNESS));
+
     }
 
     @Override
     public void build() {
         setPreferredSize(new Dimension(PanelConfig.Board.WIDTH, PanelConfig.Board.HEIGHT));
     }
+
 
     @Override
     public void addComponents() {

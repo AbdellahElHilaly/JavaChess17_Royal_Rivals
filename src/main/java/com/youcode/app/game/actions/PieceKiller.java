@@ -2,6 +2,7 @@ package com.youcode.app.game.actions;
 
 import com.youcode.app.game.arbiter.BasicArbiter;
 import com.youcode.app.game.controller.BoardInfoController;
+import com.youcode.app.game.controller.CellController;
 import com.youcode.app.game.controller.SideBareController;
 import com.youcode.app.game.controller.TextPlayerController;
 import com.youcode.app.game.helper.LogicHelper;
@@ -17,7 +18,7 @@ public class PieceKiller {
     public static void handelKilling(Cell killerCell, Cell victimCell, Cell nextCell) {
         if (!killingIsValid(killerCell, victimCell)) return;
         checkChangeVictimCell(victimCell, nextCell);
-        printInfo(killerCell, victimCell);
+//        printInfo(killerCell, victimCell);
         kill(killerCell, victimCell);
     }
 
@@ -64,13 +65,10 @@ public class PieceKiller {
         killerCell.setDefaultStyle();
 
         victimCell.removePieceAndUpdate();
-        victimCell.setMovingPieceAndUpdate(killerCell.getPiece().getPiecesType(), killerCell.getPiece().getPieceColor());
+
+        CellController.replacePiece(killerCell, victimCell);
 
         killerCell.removePieceAndUpdate();
-
-
-        ObjectPrinter.table(killerCell.getCellInfo(), "killerCell");
-        ObjectPrinter.table(victimCell.getCellInfo(), "victimCell");
 
         TextPlayerController.updatePlayerInfo(killerPlayer);
 

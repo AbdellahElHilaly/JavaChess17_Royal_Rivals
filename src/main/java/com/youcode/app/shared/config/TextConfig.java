@@ -11,7 +11,7 @@ public class TextConfig {
 
     public static class PlayerName {
         public static final Font FONT = AppFonts.PRIMARY;
-        public static final Color COLOR = AppColors.TEXT_LIGHT;
+        public static final Color COLOR = AppColors.TEXT_DARK;
         public static final Integer SIZE = AppSizes.FONT_SECONDARY;
 
         public static final Dimension DIMENSION = new Dimension(AppSizes.MAX_WIDTH/3 - 10, 0);
@@ -22,9 +22,9 @@ public class TextConfig {
         public static final Color COLOR = AppColors.TEXT_LIGHT;
         public static final Integer SIZE = AppSizes.FONT_PRIMARY;
 
-        public static final Color BACKGROUND = AppColors.TEXT_DARK;
-        public static final Color BORDER_COLOR = AppColors.DARK;
-        public static final Color COLOR_WARN = AppColors.YELLOW;
+        public static final Color BACKGROUND = AppColors.BOARD_INFO_BACKGROUND;
+        public static final Color BORDER_COLOR = AppColors.BORDER;
+        public static final Color COLOR_WARN = AppColors.WARNING;
         public static final Color COLOR_ERROR = AppColors.ERROR;
         public static final Color COLOR_SUCCESS = AppColors.SUCCESS;
     }

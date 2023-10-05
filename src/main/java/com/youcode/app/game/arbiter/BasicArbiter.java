@@ -25,7 +25,7 @@ public class BasicArbiter {
 
             TimerController.startCount(CellColor.LIGHT);
 
-            ObjectPrinter.json(Starter.getPlayer(currentPlayer), "currentPlayer");
+//            ObjectPrinter.json(Starter.getPlayer(currentPlayer), "currentPlayer");
 
             currentPlayer = CellColor.LIGHT;
 

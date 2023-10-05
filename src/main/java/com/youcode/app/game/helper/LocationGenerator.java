@@ -7,7 +7,8 @@ import com.youcode.libs.print.ObjectPrinter;
 public class LocationGenerator {
     public static final Location location = new Location();
 
-    public static Location get(Cell cell) {
+
+    public static Location generate(Cell cell) {
         location.setX(generateX(cell.getCellInfo().getCol()));
         location.setY(generateY(cell.getCellInfo().getRow()));
         return location;
@@ -21,11 +22,5 @@ public class LocationGenerator {
         return 8 - row;
     }
 
-    public static int getX(Cell cell) {
-        return get(cell).getX();
-    }
 
-    public static int getY(Cell cell) {
-        return get(cell).getY();
-    }
 }

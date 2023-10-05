@@ -1,6 +1,6 @@
 package com.youcode.app.ui.layout;
 
-import com.youcode.app.ui.component.text.BoardInformation;
+import com.youcode.app.ui.component.text.TextInformation;
 import com.youcode.app.ui.component.text.TextPlayer;
 import com.youcode.app.ui.guide.impl.AppPanelImpl;
 import com.youcode.app.shared.config.PanelConfig;
@@ -11,7 +11,7 @@ import java.awt.*;
 public class Header extends AppPanelImpl {
     private  final TextPlayer textPlayerDark = new TextPlayer(10, 0);
     private  final TextPlayer textPlayerLight = new TextPlayer(0, 50);
-    private  final BoardInformation boardInformation = new BoardInformation();
+    private  final TextInformation textInformation = new TextInformation();
     public Header() {
         init();
     }
@@ -37,13 +37,13 @@ public class Header extends AppPanelImpl {
     @Override
     public void addComponents() {
         add(textPlayerDark, BorderLayout.WEST);
-        add(boardInformation, BorderLayout.CENTER);
+        add(textInformation, BorderLayout.CENTER);
         add(textPlayerLight, BorderLayout.EAST);
 
     }
 
-    public BoardInformation getBoardInformation() {
-        return boardInformation;
+    public TextInformation getBoardInformation() {
+        return textInformation;
     }
 
     public TextPlayer getTextPlayerDark() {

@@ -15,5 +15,9 @@ public abstract class AppFrameImpl extends JFrame implements AppFrame {
     }
 
 
-
+    public void updateFrame() {
+        this.invalidate();
+        this.validate();
+        this.repaint();
+    }
 }

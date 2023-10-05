@@ -16,7 +16,6 @@ public class BoardContainer extends AppPanelImpl {
     }
     @Override
     public void setLayout() {
-//        setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
         setLayout(new BorderLayout());
     }
 

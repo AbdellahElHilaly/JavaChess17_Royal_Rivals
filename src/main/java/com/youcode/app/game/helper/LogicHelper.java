@@ -1,5 +1,6 @@
 package com.youcode.app.game.helper;
 
+import com.youcode.app.game.controller.CellController;
 import com.youcode.app.game.root.Starter;
 import com.youcode.app.game.model.entity.Location;
 import com.youcode.app.game.model.entity.Player;
@@ -35,7 +36,7 @@ public class LogicHelper {
     public static List<Cell> findCellsInTheWay(List<Cell> cells, Location tempLocation) {
         return cells.stream().filter(cell -> {
 
-                    Location location = LocationGenerator.get(cell);
+                    Location location = CellController.getLocation(cell);
                     if (location.getX() == tempLocation.getX() && location.getY() == tempLocation.getY()) {
                         return true;
                     } else {

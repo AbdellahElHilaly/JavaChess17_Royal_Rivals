@@ -1,5 +1,6 @@
 package com.youcode.app.game.validator.kill;
 
+import com.youcode.app.game.controller.CellController;
 import com.youcode.app.game.helper.KillingValidatorHandler;
 import com.youcode.app.game.helper.LocationGenerator;
 import com.youcode.app.game.model.entity.Location;
@@ -50,11 +51,11 @@ public class KillingValidatorRoot {
 
     private static void getCellDetails(Cell killerCell, Cell victimeCell) {
 
-        killerLocation.setX(LocationGenerator.getX(killerCell));
-        killerLocation.setY(LocationGenerator.getY(killerCell));
+        killerLocation.setX(CellController.getLocation(killerCell).getX());
+        killerLocation.setY(CellController.getLocation(killerCell).getY());
 
-        victimeLocation.setX(LocationGenerator.getX(victimeCell));
-        victimeLocation.setY(LocationGenerator.getY(victimeCell));
+        victimeLocation.setX(CellController.getLocation(victimeCell).getX());
+        victimeLocation.setY(CellController.getLocation(victimeCell).getY());
 
         type = killerCell.getPiece().getPiecesType();
         currentPlayerColor = killerCell.getPiece().getPieceColor();

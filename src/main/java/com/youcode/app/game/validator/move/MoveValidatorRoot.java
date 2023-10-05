@@ -1,5 +1,6 @@
 package com.youcode.app.game.validator.move;
 
+import com.youcode.app.game.controller.CellController;
 import com.youcode.app.game.helper.LocationGenerator;
 import com.youcode.app.game.helper.MoveValidatorsHandler;
 import com.youcode.app.game.model.entity.Location;
@@ -52,11 +53,11 @@ public class MoveValidatorRoot {
 
     private static void getCellDetails(Cell oldetCell, Cell nextCell) {
 
-        oldLocation.setX(LocationGenerator.getX(oldetCell));
-        oldLocation.setY(LocationGenerator.getY(oldetCell));
+        oldLocation.setX(CellController.getLocation(oldetCell).getX());
+        oldLocation.setY(CellController.getLocation(oldetCell).getY());
 
-        nextLocation.setX(LocationGenerator.getX(nextCell));
-        nextLocation.setY(LocationGenerator.getY(nextCell));
+        nextLocation.setX(CellController.getLocation(nextCell).getX());
+        nextLocation.setY(CellController.getLocation(nextCell).getY());
 
         type = oldetCell.getPiece().getPiecesType();
         currentPlayerColor = oldetCell.getPiece().getPieceColor();

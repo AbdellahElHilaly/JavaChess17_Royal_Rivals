@@ -2,6 +2,7 @@ package com.youcode.app.game.actions;
 
 import com.youcode.app.game.arbiter.BasicArbiter;
 import com.youcode.app.game.controller.BoardInfoController;
+import com.youcode.app.game.controller.CellController;
 import com.youcode.app.game.helper.LocationGenerator;
 import com.youcode.app.game.validator.move.MoveValidatorRoot;
 import com.youcode.app.ui.component.other.Cell;
@@ -12,14 +13,14 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 
-public class PieceClicked {
+public class PieceClicker {
 
     private static Cell oldetCell;
     private static Cell nextCell;
 
 
     public static void startDetection(List<Cell> cellList) {
-        cellList.forEach(PieceClicked::addDetection);
+        cellList.forEach(PieceClicker::addDetection);
     }
 
     private static void addDetection(Cell clickedCell) {
@@ -116,9 +117,9 @@ public class PieceClicked {
     }
 
     private static void printInfo(Cell clickedCell) {
-//        ObjectPrinter.json(clickedCell.getCellInfo(), "Cell Info");
-        if (oldetCell != null) ObjectPrinter.json(LocationGenerator.get(oldetCell), "old Location");
-        if (nextCell != null) ObjectPrinter.json(LocationGenerator.get(nextCell), "next Location");
+        ObjectPrinter.json(clickedCell.getCellInfo(), "Cell Info");
+        if (oldetCell != null) ObjectPrinter.json(CellController.getLocation(oldetCell), "old Location");
+        if (nextCell != null) ObjectPrinter.json(CellController.getLocation(nextCell), "next Location");
     }
 
 }

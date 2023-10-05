@@ -1,6 +1,7 @@
 package com.youcode.app.game.actions;
 
 import com.youcode.app.game.arbiter.BasicArbiter;
+import com.youcode.app.game.controller.CellController;
 import com.youcode.app.ui.component.other.Cell;
 import com.youcode.libs.print.Printer;
 
@@ -16,6 +17,7 @@ public class PieceMover {
     public static void move(Cell from, Cell to) {
         if (confirm_move_click){
             startMove(from, to);
+            PieceUpgrader.checkPawnUpgrade(to);
             confirm_move_click = false;
             BasicArbiter.changePlayer();
         }
@@ -28,7 +30,8 @@ public class PieceMover {
         }
         if (isCellEmpty(to)) {
 
-            to.setMovingPieceAndUpdate(from.getPiece().getPiecesType(), from.getPiece().getPieceColor());
+            CellController.replacePiece(from, to);
+
             to.setDefaultStyle();
 
             from.removePieceAndUpdate();

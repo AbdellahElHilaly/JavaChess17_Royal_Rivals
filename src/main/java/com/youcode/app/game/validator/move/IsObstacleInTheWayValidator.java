@@ -109,7 +109,6 @@ public class IsObstacleInTheWayValidator {
         } else {
             return 1;
         }
-
     }
 
     private static int generateVerticalIndex(int old_y, int next_y) {

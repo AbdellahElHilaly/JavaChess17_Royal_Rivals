@@ -1,9 +1,6 @@
 package com.youcode.app.ui.component.text;
 
-import com.youcode.app.game.model.entity.Player;
-import com.youcode.app.shared.Const.AppSizes;
 import com.youcode.app.shared.config.PanelConfig;
-import com.youcode.app.shared.enums.PiecesTypes;
 import com.youcode.app.ui.guide.AppComponent;
 import com.youcode.app.shared.config.TextConfig;
 import com.youcode.libs.util.config.AppConfig;
@@ -11,9 +8,9 @@ import com.youcode.libs.util.config.AppConfig;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-public class BoardInformation extends JLabel implements AppComponent {
+public class TextInformation extends JLabel implements AppComponent {
 
-    public BoardInformation() {
+    public TextInformation() {
         super(AppConfig.APP_NAME);
         init();
     }

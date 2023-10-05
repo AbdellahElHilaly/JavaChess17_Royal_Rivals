@@ -37,5 +37,7 @@ public class Starter {
     }
 
 
-
+    public static void updateFrame() {
+        gameScreen.updateFrame();
+    }
 }
