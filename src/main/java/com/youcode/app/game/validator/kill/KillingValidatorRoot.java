@@ -21,21 +21,8 @@ public class KillingValidatorRoot {
 
         getCellDetails(killerCell, victimeCell);
 
-        return switch (type) {
-            case KING ->
-                    setValidationStyle(KillingValidatorHandler.king(killerLocation, victimeLocation, currentPlayerColor), victimeCell);
-            case QUEEN ->
-                    setValidationStyle(KillingValidatorHandler.queen(killerLocation, victimeLocation, currentPlayerColor), victimeCell);
-            case ROOK ->
-                    setValidationStyle(KillingValidatorHandler.rook(killerLocation, victimeLocation, currentPlayerColor), victimeCell);
-            case BISHOP ->
-                    setValidationStyle(KillingValidatorHandler.bishop(killerLocation, victimeLocation, currentPlayerColor), victimeCell);
-            case KNIGHT ->
-                    setValidationStyle(KillingValidatorHandler.knight(killerLocation, victimeLocation, currentPlayerColor), victimeCell);
-            case PAWN ->
-                    setValidationStyle(KillingValidatorHandler.pawn(killerLocation, victimeLocation, currentPlayerColor), victimeCell);
-            default -> false;
-        };
+        return setValidationStyle(KillingValidatorHandler.validate(type, killerLocation, victimeLocation, currentPlayerColor), victimeCell);
+
     }
 
 

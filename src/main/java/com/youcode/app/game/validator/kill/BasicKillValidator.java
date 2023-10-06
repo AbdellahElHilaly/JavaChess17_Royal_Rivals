@@ -1,5 +1,6 @@
 package com.youcode.app.game.validator.kill;
 
+import com.youcode.app.game.arbiter.BasicArbiter;
 import com.youcode.app.game.controller.BoardInfoController;
 import com.youcode.app.game.helper.LogicHelper;
 import com.youcode.app.game.model.entity.Location;
@@ -7,6 +8,7 @@ import com.youcode.app.shared.enums.CellColor;
 import com.youcode.app.shared.enums.PiecesTypes;
 
 public class BasicKillValidator {
+
     public static boolean pawn(Location killerLocation, Location victimLocation) {
         int deltaX = LogicHelper.delta(killerLocation.getX(), victimLocation.getX());
         int deltaY = LogicHelper.delta(killerLocation.getY(), victimLocation.getY());
@@ -35,7 +37,7 @@ public class BasicKillValidator {
     }
 
     private static boolean validatorHandler(boolean condition, PiecesTypes pieces) {
-        if (!condition) BoardInfoController.warning(pieces + " can't kill this piece");
+        if (!condition && BasicArbiter.canShowMessagesBoard ) BoardInfoController.warning(pieces + " can't kill this piece");
         else BoardInfoController.reset();
         return condition;
     }

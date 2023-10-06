@@ -18,9 +18,6 @@ public class PieceUpgrader {
     public static void checkPawnUpgrade(Cell cell) {
         getDetails(cell);
 
-        ObjectPrinter.json(cell.getCellInfo(), "cell upgrader");
-        ObjectPrinter.json(pieceLocation, "location upgrader");
-
 
         if(isPawn() && isInLastRow()) {
             upgradeToQueen(cell);
@@ -49,9 +46,7 @@ public class PieceUpgrader {
 
     public static void upgradeToQueen(Cell cell) {
         if(isDark()) CellController.upgrade(cell, PiecesTypes.QUEEN, CellColor.DARK);
-//            cell.changePieceAndUpdate(PiecesTypes.QUEEN, CellColor.DARK);
         else CellController.upgrade(cell, PiecesTypes.QUEEN, CellColor.LIGHT);
-//            cell.changePieceAndUpdate(PiecesTypes.QUEEN, CellColor.LIGHT);
         BoardInfoController.success("Pawn upgraded to Queen");
     }
 }

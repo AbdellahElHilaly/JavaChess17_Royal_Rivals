@@ -9,6 +9,7 @@ import com.youcode.libs.print.ObjectPrinter;
 public class BasicArbiter {
     public static CellColor currentPlayer = CellColor.DARK;
     public static boolean isFirstMove = true;
+    public static boolean canShowMessagesBoard = true;
 
 
     public static boolean isFirstPawnPlay(Location oldLocation) {

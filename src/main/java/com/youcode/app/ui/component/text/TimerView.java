@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 
 public class TimerView extends JLabel implements AppComponent {
 
-    private Timer timer = new Timer(10, new TimerActionListener());
+    private final Timer timer = new Timer(10, new TimerActionListener());
     private long elapsedTime = 0;
     private boolean isRunning = false;
 
@@ -40,13 +40,13 @@ public class TimerView extends JLabel implements AppComponent {
         setText("00:00:00:00");
     }
 
-    public void setMarginLeft(int paddingLeft) {
-        setBorder(new EmptyBorder(0, paddingLeft, 0, 0));
+    public void setMarginLeft(int marginLeft) {
+        setBorder(new EmptyBorder(0, marginLeft, 0, 0));
+    }
+    public void setMarginRight(int marginRight) {
+        setBorder(new EmptyBorder(0, 0, 0, marginRight));
     }
 
-    public void setMarginRight(int paddingRight) {
-        setBorder(new EmptyBorder(0, 0, 0, paddingRight));
-    }
 
     private void startTimer() {
         if (!isRunning) {

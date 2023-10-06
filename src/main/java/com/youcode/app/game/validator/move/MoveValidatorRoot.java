@@ -1,7 +1,6 @@
 package com.youcode.app.game.validator.move;
 
 import com.youcode.app.game.controller.CellController;
-import com.youcode.app.game.helper.LocationGenerator;
 import com.youcode.app.game.helper.MoveValidatorsHandler;
 import com.youcode.app.game.model.entity.Location;
 import com.youcode.app.ui.component.other.Cell;

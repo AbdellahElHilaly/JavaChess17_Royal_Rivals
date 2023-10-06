@@ -4,6 +4,7 @@ import com.youcode.app.game.arbiter.BasicArbiter;
 import com.youcode.app.game.controller.BoardInfoController;
 import com.youcode.app.game.controller.CellController;
 import com.youcode.app.game.helper.LocationGenerator;
+import com.youcode.app.game.validator.check_mate.CheckMateValidator;
 import com.youcode.app.game.validator.move.MoveValidatorRoot;
 import com.youcode.app.ui.component.other.Cell;
 import com.youcode.libs.print.ObjectPrinter;
@@ -36,11 +37,16 @@ public class PieceClicker {
     private static void handelClick(Cell clickedCell) {
         cellClickedFocus(clickedCell);
 
-        printInfo(clickedCell);
+//        printInfo(clickedCell);
+
 
         if (MoveValidatorRoot.validate(oldetCell, nextCell)) {
+
             PieceMover.move(oldetCell, nextCell);
+
+
         } else PieceMover.confirm_move_click = false;
+
     }
 
 
@@ -50,14 +56,13 @@ public class PieceClicker {
     }
 
     private static void handlePieceClickedCell(Cell clickedCell) {
-        if (BasicArbiter.currentPlayer != clickedCell.getPiece().getPieceColor()){
-            if(nextCell != null) {
+        if (BasicArbiter.currentPlayer != clickedCell.getPiece().getPieceColor()) {
+            if (nextCell != null) {
                 nextCell.setDefaultStyle();
-                PieceKiller.handelKilling(oldetCell, clickedCell,nextCell);
+                PieceKiller.handelKilling(oldetCell, clickedCell, nextCell);
             }
             nextCell = clickedCell;
-        }
-        else{
+        } else {
             firstPieceClicked(clickedCell);
             changePieceClicked(clickedCell);
             cancelAndChangePieceClicked(clickedCell);

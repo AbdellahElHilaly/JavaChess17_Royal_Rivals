@@ -16,6 +16,7 @@ public class Cell extends AppPanelImpl {
     private Piece piece;
     private boolean isCellEmpty;
 
+
     public Cell(CellColor status, int row, char col) {
         this.cellColor = status;
         this.row = row;
@@ -120,4 +121,20 @@ public class Cell extends AppPanelImpl {
     }
 
 
+    public void setAttackedStyle() {
+        setBorder(PanelConfig.Cell.ATTACKED_BORDER);
+    }
+
+    public void setCheckMateStyle() {
+        setBackground(PanelConfig.Cell.BACKGROUND_DARK);
+        setBorder(PanelConfig.Cell.CHACK_MATE_BORDER);
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public char getCol() {
+        return col;
+    }
 }

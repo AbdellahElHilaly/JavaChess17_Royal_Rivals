@@ -1,5 +1,6 @@
 package com.youcode.app.game.validator.move;
 
+import com.youcode.app.game.arbiter.BasicArbiter;
 import com.youcode.app.game.controller.BoardInfoController;
 import com.youcode.app.game.root.Starter;
 import com.youcode.app.game.model.entity.Location;
@@ -121,7 +122,7 @@ public class IsObstacleInTheWayValidator {
 
 
     private static boolean validatorHandler(boolean condition, PiecesTypes pieces) {
-        if (!condition) BoardInfoController.warning(pieces + " have an obstacle in the way");
+        if (!condition && BasicArbiter.canShowMessagesBoard ) BoardInfoController.warning(pieces + " have an obstacle in the way");
         else BoardInfoController.reset();
         return condition;
     }

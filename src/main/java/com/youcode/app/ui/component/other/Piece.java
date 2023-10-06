@@ -107,4 +107,6 @@ public class Piece extends AppPanelImpl {
     public void setPiecesType(PiecesTypes piecesType) {
         this.piecesType = piecesType;
     }
+
+
 }

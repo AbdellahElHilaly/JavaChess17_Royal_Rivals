@@ -1,34 +1,32 @@
-package com.youcode.app.shared.Const.pallets;
+package com.youcode.app.ui.pallets;
 
 import com.youcode.app.ui.guide.Pallet;
 
 import java.awt.*;
 
-public class MaxPallet implements Pallet {
-
+public class ColdePallet implements Pallet {
     @Override
     public Color primary() {
-        return Color.decode("#780000");
+        return Color.decode("#2667ff");
     }
 
     @Override
     public Color secondary() {
-        return Color.decode("#c1121f");
+        return Color.decode("#3f8efc");
     }
 
     @Override
     public Color tertiary() {
-        return Color.decode("#003049");
+        return Color.decode("#3b28cc");
     }
 
     @Override
     public Color quaternary() {
-        return Color.decode("#fdf0d5");
+        return Color.decode("#add7f6");
     }
 
     @Override
     public Color background() {
-        return Color.decode("#669bbc");
+        return Color.decode("#87bfff");
     }
-
 }

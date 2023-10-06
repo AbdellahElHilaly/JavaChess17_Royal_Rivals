@@ -2,6 +2,7 @@ package com.youcode.app.game.actions;
 
 import com.youcode.app.game.arbiter.BasicArbiter;
 import com.youcode.app.game.controller.CellController;
+import com.youcode.app.game.validator.check_mate.CheckMateValidator;
 import com.youcode.app.ui.component.other.Cell;
 import com.youcode.libs.print.Printer;
 
@@ -20,6 +21,7 @@ public class PieceMover {
             PieceUpgrader.checkPawnUpgrade(to);
             confirm_move_click = false;
             BasicArbiter.changePlayer();
+            CheckMateValidator.CheckMate();
         }
     }
 
@@ -36,8 +38,6 @@ public class PieceMover {
 
             from.removePieceAndUpdate();
             from.setDefaultStyle();
-
-
         }
     }
 

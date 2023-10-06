@@ -47,6 +47,8 @@ public class PanelConfig {
         public static final Border CLICKED_EMPTY_BORDER = BorderFactory.createLineBorder(AppColors.BORDER, 4);
         public static final Border INVALID_MOVE_BORDER = BorderFactory.createLineBorder(AppColors.ERROR, 5);
         public static final Border VALID_MOVE_BORDER = BorderFactory.createLineBorder(AppColors.SUCCESS, 5);
+        public static final Border ATTACKED_BORDER = BorderFactory.createLineBorder(AppColors.WARNING, 8);
+        public static final Border CHACK_MATE_BORDER = BorderFactory.createLineBorder(AppColors.ERROR, 8);
 
         public static Color getBackground(CellColor status) {
             return status == CellColor.LIGHT ? BACKGROUND_LIGHT : BACKGROUND_DARK;

@@ -1,8 +1,6 @@
 package com.youcode.app.ui.helper;
 
-import com.youcode.app.shared.Const.pallets.*;
 import com.youcode.app.shared.config.PanelConfig;
-import com.youcode.app.ui.guide.Pallet;
 import com.youcode.libs.print.Printer;
 
 import javax.imageio.ImageIO;
@@ -36,6 +34,6 @@ public class UiHelper {
 
 
 
-
-
 }
+
+

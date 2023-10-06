@@ -1,33 +1,32 @@
-package com.youcode.app.shared.Const.pallets;
+package com.youcode.app.ui.pallets;
 
 import com.youcode.app.ui.guide.Pallet;
 
 import java.awt.*;
 
-public class GirlPallet implements Pallet {
-
+public class SmoothPallet implements Pallet {
     @Override
     public Color primary() {
-        return Color.decode("#d972ff");
+        return Color.decode("#475c6c");
     }
 
     @Override
     public Color secondary() {
-        return Color.decode("#ffb2e6");
+        return Color.decode("#8a8583");
     }
 
     @Override
     public Color tertiary() {
-        return Color.decode("#8447ff");
+        return Color.decode("#cd8b62");
     }
 
     @Override
     public Color quaternary() {
-        return Color.decode("#8cffda");
+        return Color.decode("#f7efd2");
     }
 
     @Override
     public Color background() {
-        return Color.decode("#ffffe8");
+        return Color.decode("#eed7a1");
     }
 }

@@ -1,6 +1,7 @@
 package com.youcode.app.game.controller;
 
 
+import com.youcode.app.game.arbiter.BasicArbiter;
 import com.youcode.app.game.helper.LogicHelper;
 import com.youcode.app.game.model.entity.Player;
 import com.youcode.app.game.root.Starter;
@@ -22,15 +23,16 @@ public class BoardInfoController {
     }
 
     public static void warning(String message) {
-        TEXT_INFORMATION.warn(message);
+         TEXT_INFORMATION.warn(message);
+
     }
 
     public static void success(String message) {
-        TEXT_INFORMATION.success(message);
+         TEXT_INFORMATION.success(message);
     }
 
     public static void reset() {
-        TEXT_INFORMATION.reset();
+         TEXT_INFORMATION.reset();
     }
 
     public static void focus(Cell clickedCell) {

@@ -1,8 +1,9 @@
-package com.youcode.app.shared.Const.pallets;
+package com.youcode.app.ui.helper;
 
 import com.youcode.app.ui.guide.Pallet;
+import com.youcode.app.ui.pallets.*;
 
-public  class PalletSelector {
+public  class PalletGrouper {
     public static final Pallet Default = new DefaultPallet();
     public static final Pallet Max = new MaxPallet();
     public static final Pallet Smooth = new SmoothPallet();
@@ -11,7 +12,5 @@ public  class PalletSelector {
     public static final Pallet  Cold = new ColdePallet();
     public static final Pallet  Hot = new HotPallet();
     public static final Pallet  Savanna= new SavannaPallet();
-
-
 
 }

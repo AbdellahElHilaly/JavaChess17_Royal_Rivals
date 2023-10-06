@@ -12,7 +12,6 @@ public class CellController {
         return LocationGenerator.generate(cell);
     }
 
-
     public  static void replacePiece(Cell newCell, Cell oldeCell) {
         oldeCell.replacePieceAndUpdate(newCell.getPiece().getPiecesType(), newCell.getPiece().getPieceColor());
     }
@@ -22,4 +21,8 @@ public class CellController {
     }
 
 
+    public static Location getDefaultLocation(PiecesTypes piecesTypes) {
+        return LocationGenerator.defaultLocation(piecesTypes);
+
+    }
 }

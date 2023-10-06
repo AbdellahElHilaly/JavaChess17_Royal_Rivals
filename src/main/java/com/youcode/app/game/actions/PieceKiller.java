@@ -7,6 +7,7 @@ import com.youcode.app.game.controller.SideBareController;
 import com.youcode.app.game.controller.TextPlayerController;
 import com.youcode.app.game.helper.LogicHelper;
 import com.youcode.app.game.model.entity.Player;
+import com.youcode.app.game.validator.check_mate.CheckMateValidator;
 import com.youcode.app.game.validator.kill.KillingValidatorRoot;
 import com.youcode.app.ui.component.other.Cell;
 import com.youcode.libs.print.ObjectPrinter;
@@ -20,6 +21,7 @@ public class PieceKiller {
         checkChangeVictimCell(victimCell, nextCell);
 //        printInfo(killerCell, victimCell);
         kill(killerCell, victimCell);
+        PieceUpgrader.checkPawnUpgrade(nextCell);
     }
 
     private static void checkChangeVictimCell(Cell victimCell, Cell nextCell) {
@@ -48,6 +50,7 @@ public class PieceKiller {
             startKill(killerCell, victimCell);
             BasicArbiter.changePlayer();
             confirm_kill_click = false;
+            CheckMateValidator.CheckMate();
         } else confirm_kill_click = true;
     }
 

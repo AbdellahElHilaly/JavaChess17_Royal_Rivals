@@ -7,6 +7,7 @@ import com.youcode.app.game.model.entity.Player;
 import com.youcode.app.shared.enums.CellColor;
 import com.youcode.app.ui.component.other.Cell;
 import com.youcode.app.shared.enums.PiecesTypes;
+import com.youcode.libs.print.ObjectPrinter;
 
 import java.util.List;
 
@@ -35,13 +36,8 @@ public class LogicHelper {
 
     public static List<Cell> findCellsInTheWay(List<Cell> cells, Location tempLocation) {
         return cells.stream().filter(cell -> {
-
                     Location location = CellController.getLocation(cell);
-                    if (location.getX() == tempLocation.getX() && location.getY() == tempLocation.getY()) {
-                        return true;
-                    } else {
-                        return false;
-                    }
+                    return location.getX() == tempLocation.getX() && location.getY() == tempLocation.getY();
                 }
         ).toList();
     }
@@ -57,4 +53,19 @@ public class LogicHelper {
         return cellColor == CellColor.DARK ? Starter.getPlayer(CellColor.DARK) : Starter.getPlayer(CellColor.LIGHT);
 
     }
+
+    public static List<Cell> getEnemies(List<Cell> cells, CellColor enemyColor) {
+        return cells.stream().filter(cell -> !cell.isEmpty() && cell.getPiece().getPieceColor() == enemyColor).toList();
+    }
+
+
+
+    public static Cell getDarkKing(List<Cell> cells) {
+        return cells.stream().filter(cell -> !cell.isEmpty() && cell.getPiece().getPieceColor() == CellColor.DARK && cell.getPiece().getPiecesType() == PiecesTypes.KING).findFirst().orElse(null);
+    }
+
+    public static Cell getLightKing(List<Cell> cells) {
+        return cells.stream().filter(cell -> !cell.isEmpty() && cell.getPiece().getPieceColor() == CellColor.LIGHT && cell.getPiece().getPiecesType() == PiecesTypes.KING).findFirst().orElse(null);
+    }
+
 }

@@ -1,7 +1,7 @@
 package com.youcode.libs.util.config;
 
 
-import com.youcode.app.shared.Const.pallets.PalletSelector;
+import com.youcode.app.ui.helper.PalletGrouper;
 import com.youcode.app.ui.guide.Pallet;
 import com.youcode.libs.print.Emojis;
 import com.youcode.libs.util.enums.RunMoods;
@@ -13,6 +13,6 @@ public class AppConfig {
     public static final String APP_AUTHOR = "ABDELLAH EL HILALY";
     public static final String RUN_MOOD = RunMoods.Development.name();
 
-    public static final Pallet PALLET = PalletSelector.Savanna;
+    public static final Pallet PALLET = PalletGrouper.Default;
 
 }

@@ -60,7 +60,7 @@ public class FreeTransactionValidator {
 
 
     private static boolean validatorHandler(boolean condition, PiecesTypes pieces) {
-        if (!condition) BoardInfoController.warning(pieces + " can't move like that");
+        if (!condition && BasicArbiter.canShowMessagesBoard ) BoardInfoController.warning(pieces + " can't move like that");
         else BoardInfoController.reset();
         return condition;
     }
