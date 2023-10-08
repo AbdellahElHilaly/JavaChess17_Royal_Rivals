@@ -20,17 +20,11 @@ public class CheckMateValidator {
 
     private static final List<Cell> cells = Starter.getCellsList();
 
-
     public static void CheckMate() {
 
         BasicArbiter.canShowMessagesBoard = false;
-
-
         if (checkMateDark()) BoardInfoController.warning("check mate");
-
         if (checkMateLight()) BoardInfoController.warning("check mate");
-
-
         BasicArbiter.canShowMessagesBoard = true;
 
 
@@ -39,15 +33,13 @@ public class CheckMateValidator {
     private static boolean checkMateLight() {
 
         List<Cell> enemies = LogicHelper.getEnemies(cells, CellColor.DARK);
-
         Cell lightKing = LogicHelper.getLightKing(cells);
 
-        if (startCheckMate(enemies, lightKing)){
-            lightKing.setCheckMateStyle();
+        if (startCheckMate(enemies, lightKing)) {
+            CellController.check(lightKing);
             return true;
-        }
-        else  {
-            lightKing.setDefaultStyle();
+        } else {
+            CellController.cancelCheck(lightKing);
             return false;
         }
     }
@@ -56,35 +48,22 @@ public class CheckMateValidator {
     private static boolean checkMateDark() {
 
         List<Cell> enemies = LogicHelper.getEnemies(cells, CellColor.LIGHT);
-
         Cell darkKing = LogicHelper.getDarkKing(cells);
 
-        if (startCheckMate(enemies, darkKing)){
-            darkKing.setCheckMateStyle();
+        if (startCheckMate(enemies, darkKing)) {
+            CellController.check(darkKing);
             return true;
+        } else {
+            CellController.cancelCheck(darkKing);
+            return false;
         }
-        else  {
-            darkKing.setDefaultStyle();
-           return false;
-        }
+
     }
 
     private static boolean startCheckMate(List<Cell> enemies, Cell king) {
 
-
-        Location kingLocation = new Location();
-
-        kingLocation.setX(CellController.getLocation(king).getX());
-        kingLocation.setY(CellController.getLocation(king).getY());
-
-
-        ObjectPrinter.json(kingLocation, "king not check mate location");
-
+        Location kingLocation = new Location(CellController.getLocation(king).getX(), CellController.getLocation(king).getY());
         CellColor kingColor = king.getPiece().getPieceColor();
-
-
-        ObjectPrinter.table(king.getCellInfo(), "king");
-
         AtomicBoolean checkMate = new AtomicBoolean(false);
 
 
@@ -94,27 +73,20 @@ public class CheckMateValidator {
             PiecesTypes enemyType = enemy.getPiece().getPiecesType();
             Location enemyLocation = CellController.getLocation(enemy);
 
+
             if (KillingValidatorHandler.validate(enemyType, enemyLocation, kingLocation, enemyColor)) {
-
-
-                enemy.setAttackedStyle();
-
+                CellController.checkMate(enemy);
                 String message = "the " + enemyColor + " " + enemyType + " can kill the " + kingColor + " king";
-
                 BoardInfoController.warning(message);
-
                 Printer.error(message);
-
                 checkMate.set(true);
 
             } else {
-                if(enemyType != PiecesTypes.KING) enemy.setDefaultStyle();
+                CellController.cancelCheckMate(enemy);
             }
-
         });
 
         return checkMate.get();
-
 
     }
 

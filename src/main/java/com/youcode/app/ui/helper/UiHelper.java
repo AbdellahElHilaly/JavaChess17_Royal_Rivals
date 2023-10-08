@@ -23,7 +23,7 @@ public class UiHelper {
     }
 
 
-    public static BufferedImage getImage(String path) {
+    public static BufferedImage getPicesImage(String path) {
         try {
             return resizeImage(ImageIO.read(new File(path)), PanelConfig.Piece.WIDTH, PanelConfig.Piece.HEIGHT);
         } catch (IOException e) {
@@ -33,6 +33,14 @@ public class UiHelper {
     }
 
 
+    public static BufferedImage getStatusImage(String path) {
+        try {
+            return resizeImage(ImageIO.read(new File(path)), 10, 10);
+        } catch (IOException e) {
+            Printer.error("Image not found in : " + path);
+            throw new RuntimeException(e);
+        }
+    }
 
 }
 

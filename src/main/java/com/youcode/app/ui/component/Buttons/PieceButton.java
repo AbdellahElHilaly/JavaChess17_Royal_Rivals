@@ -5,6 +5,7 @@ import com.youcode.app.shared.config.PanelConfig;
 import com.youcode.app.shared.enums.CellColor;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class PieceButton extends JButton implements AppComponent {
 
@@ -36,11 +37,6 @@ public class PieceButton extends JButton implements AppComponent {
     }
 
 
-    public  void destroyAndUpdateIcon(Icon icon){
-        super.setIcon(icon);
-
-    }
-
     public void destroyIcon(){
         super.setIcon(null);
     }
@@ -48,4 +44,5 @@ public class PieceButton extends JButton implements AppComponent {
     public void updateComponentUI() {
         SwingUtilities.updateComponentTreeUI(this);
     }
+
 }

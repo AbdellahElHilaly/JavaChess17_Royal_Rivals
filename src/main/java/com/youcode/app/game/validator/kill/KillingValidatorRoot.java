@@ -15,6 +15,7 @@ public class KillingValidatorRoot {
     private static CellColor currentPlayerColor;
 
 
+
     public static boolean validate(Cell killerCell, Cell victimeCell) {
         if (victimeCell == null || killerCell == null) return false;
         if(killerCell.isEmpty() || victimeCell.isEmpty()) return false;

@@ -44,17 +44,17 @@ public class TextInformation extends JLabel implements AppComponent {
     }
 
     public void warn(String message) {
-        setForeground(TextConfig.GameInfo.COLOR_WARN);
+        setForeground(TextConfig.GameInfo.COLOR);
         setText(message);
     }
 
     public void error(String message) {
-        setForeground(TextConfig.GameInfo.COLOR_ERROR);
+        setForeground(TextConfig.GameInfo.COLOR);
         setText(message);
     }
 
     public void success(String message) {
-        setForeground(TextConfig.GameInfo.COLOR_SUCCESS);
+        setForeground(TextConfig.GameInfo.COLOR);
         setText(message);
     }
 

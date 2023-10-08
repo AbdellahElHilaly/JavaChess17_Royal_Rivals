@@ -21,8 +21,19 @@ public class CellController {
     }
 
 
-    public static Location getDefaultLocation(PiecesTypes piecesTypes) {
-        return LocationGenerator.defaultLocation(piecesTypes);
+    public static void checkMate(Cell enemy) {
+        enemy.setCheckMateStyle();
+    }
 
+    public static void cancelCheckMate(Cell enemy) {
+        if(enemy.getPiece().getPiecesType() != PiecesTypes.KING) enemy.setDefaultStyle();
+    }
+
+    public static void cancelCheck(Cell king) {
+        king.setDefaultStyle();
+    }
+
+    public static void check(Cell king) {
+        king.setCheckStyle();
     }
 }

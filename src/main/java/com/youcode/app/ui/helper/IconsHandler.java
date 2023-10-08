@@ -1,32 +1,40 @@
 package com.youcode.app.ui.helper;
 
-import com.youcode.app.shared.Const.PiecesImages;
+import com.youcode.app.shared.Const.AppImages;
 import com.youcode.app.shared.enums.CellColor;
+import com.youcode.app.shared.enums.CellStatus;
 import com.youcode.app.shared.enums.PiecesTypes;
 
 import java.awt.image.BufferedImage;
 
 
 public class IconsHandler {
-    public static BufferedImage get(CellColor pieceColor, PiecesTypes piecesTypes) {
+    public static BufferedImage getPieces(CellColor pieceColor, PiecesTypes piecesTypes) {
         if (pieceColor == CellColor.LIGHT) {
             return switch (piecesTypes) {
-                case PAWN -> PiecesImages.LIGHT_PAWN;
-                case KNIGHT -> PiecesImages.LIGHT_KNIGHT;
-                case BISHOP -> PiecesImages.LIGHT_BISHOP;
-                case ROOK -> PiecesImages.LIGHT_ROOK;
-                case QUEEN -> PiecesImages.LIGHT_QUEEN;
-                case KING -> PiecesImages.LIGHT_KING;
+                case PAWN -> AppImages.LIGHT_PAWN;
+                case KNIGHT -> AppImages.LIGHT_KNIGHT;
+                case BISHOP -> AppImages.LIGHT_BISHOP;
+                case ROOK -> AppImages.LIGHT_ROOK;
+                case QUEEN -> AppImages.LIGHT_QUEEN;
+                case KING -> AppImages.LIGHT_KING;
             };
         } else {
             return switch (piecesTypes) {
-                case PAWN -> PiecesImages.DARK_PAWN;
-                case KNIGHT -> PiecesImages.DARK_KNIGHT;
-                case BISHOP -> PiecesImages.DARK_BISHOP;
-                case ROOK -> PiecesImages.DARK_ROOK;
-                case QUEEN -> PiecesImages.DARK_QUEEN;
-                case KING -> PiecesImages.DARK_KING;
+                case PAWN -> AppImages.DARK_PAWN;
+                case KNIGHT -> AppImages.DARK_KNIGHT;
+                case BISHOP -> AppImages.DARK_BISHOP;
+                case ROOK -> AppImages.DARK_ROOK;
+                case QUEEN -> AppImages.DARK_QUEEN;
+                case KING -> AppImages.DARK_KING;
             };
         }
+    }
+
+    public static BufferedImage getStatusIcon(CellStatus cellStatus) {
+        return switch (cellStatus) {
+            case CHECK -> AppImages.CHECK;
+            case CHECK_MATE -> AppImages.CHECK_MATE;
+        };
     }
 }

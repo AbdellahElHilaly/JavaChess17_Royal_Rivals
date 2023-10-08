@@ -7,26 +7,26 @@ import java.awt.*;
 public class SmoothPallet implements Pallet {
     @Override
     public Color primary() {
-        return Color.decode("#475c6c");
+        return Color.decode("#d6ccc2");
     }
 
     @Override
     public Color secondary() {
-        return Color.decode("#8a8583");
+        return Color.decode("#f5ebe0");
     }
 
     @Override
     public Color tertiary() {
-        return Color.decode("#cd8b62");
+        return Color.decode("#d5bdaf");
     }
 
     @Override
     public Color quaternary() {
-        return Color.decode("#f7efd2");
+        return Color.decode("#edede9");
     }
 
     @Override
     public Color background() {
-        return Color.decode("#eed7a1");
+        return Color.decode("#e3d5ca");
     }
 }

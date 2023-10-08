@@ -1,18 +1,22 @@
 package com.youcode.app.ui.component.other;
 
 import com.youcode.app.game.model.entity.CellInfo;
+import com.youcode.app.shared.enums.CellStatus;
+import com.youcode.app.ui.component.icons.PieceIcon;
 import com.youcode.app.ui.guide.impl.AppPanelImpl;
 import com.youcode.app.shared.config.PanelConfig;
 import com.youcode.app.shared.enums.CellColor;
 import com.youcode.app.shared.enums.PiecesTypes;
+import com.youcode.app.ui.helper.IconsHandler;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class Cell extends AppPanelImpl {
 
     private final int row;
     private final char col;
-    private  CellColor cellColor;
+    private final CellColor cellColor;
     private Piece piece;
     private boolean isCellEmpty;
 
@@ -24,7 +28,6 @@ public class Cell extends AppPanelImpl {
         this.isCellEmpty = true;
         init();
     }
-
 
 
     @Override
@@ -61,8 +64,6 @@ public class Cell extends AppPanelImpl {
     }
 
 
-
-
     public Piece getPiece() {
         return piece;
     }
@@ -78,7 +79,8 @@ public class Cell extends AppPanelImpl {
     public void setEmptyClickedStyle() {
         setBorder(PanelConfig.Cell.CLICKED_EMPTY_BORDER);
     }
-    public  void setPieceClickedStyle() {
+
+    public void setPieceClickedStyle() {
         setBorder(PanelConfig.Cell.CLICKED_PIECE_BORDER);
     }
 
@@ -121,20 +123,12 @@ public class Cell extends AppPanelImpl {
     }
 
 
-    public void setAttackedStyle() {
-        setBorder(PanelConfig.Cell.ATTACKED_BORDER);
-    }
-
     public void setCheckMateStyle() {
-        setBackground(PanelConfig.Cell.BACKGROUND_DARK);
-        setBorder(PanelConfig.Cell.CHACK_MATE_BORDER);
+        setBorder(PanelConfig.Cell.CHECK_MATE_BORDER);
     }
 
-    public int getRow() {
-        return row;
+    public void setCheckStyle() {
+        setBorder(PanelConfig.Cell.CHECK_BORDER);
     }
 
-    public char getCol() {
-        return col;
-    }
 }

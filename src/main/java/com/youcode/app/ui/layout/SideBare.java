@@ -45,7 +45,7 @@ public class SideBare extends AppPanelImpl {
     }
 
     public  void  collectPiece(PiecesTypes piecesTypes, CellColor pieceColor) {
-        pieceIcon.getIcon(IconsHandler.get(pieceColor, piecesTypes));
+        pieceIcon.getIcon(IconsHandler.getPieces(pieceColor, piecesTypes));
         add(new JLabel(pieceIcon));
     }
 
