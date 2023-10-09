@@ -35,12 +35,14 @@ public class PieceClicker {
     }
 
     private static void handelClick(Cell clickedCell) {
+        if(isNotYourTurn(clickedCell)) BoardInfoController.notYourTurn();
         cellClickedFocus(clickedCell);
         if (MoveValidatorRoot.validate(oldetCell, nextCell)) {
             PieceMover.move(oldetCell, nextCell);
         } else PieceMover.confirm_move_click = false;
 
     }
+
 
 
     public static void cellClickedFocus(Cell clickedCell) {
@@ -55,7 +57,6 @@ public class PieceClicker {
                 PieceKiller.handelKilling(oldetCell, clickedCell, nextCell);
             }
             nextCell = clickedCell;
-            BoardInfoController.notYourTurn();
         } else {
             firstPieceClicked(clickedCell);
             changePieceClicked(clickedCell);
@@ -121,5 +122,16 @@ public class PieceClicker {
         if (oldetCell != null) ObjectPrinter.json(CellController.getLocation(oldetCell), "old Location");
         if (nextCell != null) ObjectPrinter.json(CellController.getLocation(nextCell), "next Location");
     }
+
+
+    private static boolean isNotYourTurn(Cell clickedCell) {
+        if (oldetCell != null) return  BasicArbiter.currentPlayer != oldetCell.getPiece().getPieceColor();
+        else return BasicArbiter.currentPlayer != clickedCell.getPiece().getPieceColor();
+
+    }
+
+
+
+
 
 }
