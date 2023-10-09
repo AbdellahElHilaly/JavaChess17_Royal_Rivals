@@ -23,8 +23,8 @@ public class CheckMateValidator {
     public static void CheckMate() {
 
         BasicArbiter.canShowMessagesBoard = false;
-        if (checkMateDark()) BoardInfoController.warning("check mate");
-        if (checkMateLight()) BoardInfoController.warning("check mate");
+        if (checkMateDark()) BoardInfoController.showCheckMate();
+        if (checkMateLight()) BoardInfoController.showCheckMate();
         BasicArbiter.canShowMessagesBoard = true;
 
 
@@ -77,7 +77,7 @@ public class CheckMateValidator {
             if (KillingValidatorHandler.validate(enemyType, enemyLocation, kingLocation, enemyColor)) {
                 CellController.checkMate(enemy);
                 String message = "the " + enemyColor + " " + enemyType + " can kill the " + kingColor + " king";
-                BoardInfoController.warning(message);
+                BoardInfoController.killInvalid(message);
                 Printer.error(message);
                 checkMate.set(true);
 

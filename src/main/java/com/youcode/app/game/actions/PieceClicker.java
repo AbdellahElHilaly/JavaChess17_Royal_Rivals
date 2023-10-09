@@ -36,15 +36,8 @@ public class PieceClicker {
 
     private static void handelClick(Cell clickedCell) {
         cellClickedFocus(clickedCell);
-
-//        printInfo(clickedCell);
-
-
         if (MoveValidatorRoot.validate(oldetCell, nextCell)) {
-
             PieceMover.move(oldetCell, nextCell);
-
-
         } else PieceMover.confirm_move_click = false;
 
     }
@@ -62,6 +55,7 @@ public class PieceClicker {
                 PieceKiller.handelKilling(oldetCell, clickedCell, nextCell);
             }
             nextCell = clickedCell;
+            BoardInfoController.notYourTurn();
         } else {
             firstPieceClicked(clickedCell);
             changePieceClicked(clickedCell);
@@ -100,6 +94,7 @@ public class PieceClicker {
     private static void handleEmptyClickedCell(Cell clickedCell) {
         PieceKiller.confirm_kill_click = false;
         if (oldetCell == null) {
+            BoardInfoController.clickInvalid();
             Printer.error("can't move from cell is empty!");
         } else if (nextCell == null) {
             newEmptyCellClicked(clickedCell);

@@ -4,8 +4,10 @@ import com.youcode.app.game.arbiter.BasicArbiter;
 import com.youcode.app.game.controller.BoardInfoController;
 import com.youcode.app.game.helper.LogicHelper;
 import com.youcode.app.game.model.entity.Location;
-import com.youcode.app.shared.enums.CellColor;
 import com.youcode.app.shared.enums.PiecesTypes;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BasicKillValidator {
 
@@ -37,8 +39,7 @@ public class BasicKillValidator {
     }
 
     private static boolean validatorHandler(boolean condition, PiecesTypes pieces) {
-        if (!condition && BasicArbiter.canShowMessagesBoard ) BoardInfoController.warning(pieces + " can't kill this piece");
-        else BoardInfoController.reset();
+        if (!condition && BasicArbiter.canShowMessagesBoard ) BoardInfoController.killInvalid(pieces + " can't kill this piece");
         return condition;
     }
 }

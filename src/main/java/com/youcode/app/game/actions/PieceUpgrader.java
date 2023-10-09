@@ -47,6 +47,6 @@ public class PieceUpgrader {
     public static void upgradeToQueen(Cell cell) {
         if(isDark()) CellController.upgrade(cell, PiecesTypes.QUEEN, CellColor.DARK);
         else CellController.upgrade(cell, PiecesTypes.QUEEN, CellColor.LIGHT);
-        BoardInfoController.success("Pawn upgraded to Queen");
+        BoardInfoController.upgrade("Pawn upgraded to Queen");
     }
 }

@@ -122,8 +122,7 @@ public class IsObstacleInTheWayValidator {
 
 
     private static boolean validatorHandler(boolean condition, PiecesTypes pieces) {
-        if (!condition && BasicArbiter.canShowMessagesBoard ) BoardInfoController.warning(pieces + " have an obstacle in the way");
-        else BoardInfoController.reset();
+        if (!condition && BasicArbiter.canShowMessagesBoard ) BoardInfoController.cantMove(pieces + " have an obstacle in the way");
         return condition;
     }
 

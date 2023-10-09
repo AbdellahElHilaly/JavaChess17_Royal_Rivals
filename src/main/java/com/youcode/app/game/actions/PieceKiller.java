@@ -75,7 +75,7 @@ public class PieceKiller {
 
         TextPlayerController.updatePlayerInfo(killerPlayer);
 
-        BoardInfoController.success(message);
+        BoardInfoController.kill(message);
 
     }
 }

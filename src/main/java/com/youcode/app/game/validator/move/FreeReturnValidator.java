@@ -46,8 +46,7 @@ public class FreeReturnValidator {
     }
 
     private static boolean validatorHandler(boolean condition, PiecesTypes pieces) {
-        if (!condition && BasicArbiter.canShowMessagesBoard ) BoardInfoController.warning(pieces + " can't move back");
-        else BoardInfoController.reset();
+        if (!condition && BasicArbiter.canShowMessagesBoard ) BoardInfoController.cantMove(pieces + " can't move back");
         return condition;
     }
 
